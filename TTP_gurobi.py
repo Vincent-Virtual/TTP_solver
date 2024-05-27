@@ -43,28 +43,32 @@ for i in range(n):
                 m.addConstr(xijk[i,j,k] == 0)
 
 # each team to play exactly one match per day (either home or away)
-m.addConstrs((gp.quicksum(xijk[i, j, k] + xijk[j, i, k] for j in range(n) if i != j) == 1 for i in range(n) for k in range(2*n-2)), name="C3")
+m.addConstrs((gp.quicksum(xijk[i, j, k] + xijk[j, i, k] for j in range(n)) == 1 for i in range(n) for k in range(2*n-2)), name="C3")
 
 # every team plays each other team once away and once at home over the 2n − 2 days
 m.addConstrs((gp.quicksum(xijk[i, j, k] for k in range(2*n-2)) == 1 for i in range(n) for j in range(n) if i != j), name="C4")
 
 
 # Constraint (5): Ensure home stands and road trips have a length of at most 3
-m.addConstrs((gp.quicksum(xijk[i, j, k + l] for j in range(n) for l in range(4) if k + l < 2*n - 2) <= 3 
-                  for i in range(n) for k in range(1, 2*n - 2 - 3)), name="C5")
+m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for j in range(n)) <= 3 
+                  for i in range(n) for k in range(2*n - 2 - 3)), name="C5")
+
+# Constraint (5): Ensure home stands and road trips have a length of at most 3
+m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for i in range(n)) <= 3 
+                  for j in range(n) for k in range(2*n - 2 - 3)), name="C6")
 
 
-# road trips have a length of at most 3
-m.addConstrs((gp.quicksum(xijk[j, i, k + l] for j in range(n) for l in range(4) if k + l < 2*n - 2) <= 3 
-                  for i in range(n) for k in range(1, 2*n - 2 - 3)), name="C6")
+# # road trips have a length of at most 3
+# m.addConstrs((gp.quicksum(xijk[j, i, k + l] for j in range(n) for l in range(4) if k + l < 2*n - 2) <= 3 
+#                   for i in range(n) for k in range(1, 2*n - 2 - 3)), name="C6")
 
 # no-repeater constraint
-m.addConstrs((xijk[i, j, k] + xijk[j, i, k] + xijk[i, j, k+1] + xijk[j, i, k+1]  <= 1 for i in range(n) for j in range(n) for k in range(1, 2*n-3) if i != j), name="C7")
+m.addConstrs((xijk[i, j, k] + xijk[j, i, k] + xijk[i, j, k+1] + xijk[j, i, k+1]  <= 1 for i in range(n) for j in range(n) for k in range(2*n - 3)), name="C7")
 
 # driving behavior of the teams
-m.addConstrs((zijk[i, i, k] == gp.quicksum(xijk[i, j, k] for j in range(n) if i != j) for i in range(n) for k in range(1, 2*n-2)), name="C8")
-m.addConstrs((zijk[i, j, k] == xijk[i, j, k] for i in range(n) for j in range(n) for k in range(1, 2*n-2) if i != j), name="C9")
-m.addConstrs((ytij[t, i, j] >= zijk[t, i, k] + zijk[t, j, k+1] - 1 for t in range(n) for i in range(n) for j in range(n) for k in range(1, 2*n-3) if i != j), name="C10")
+m.addConstrs((zijk[i, i, k] == gp.quicksum(xijk[i, j, k] for j in range(n)) for i in range(n) for k in range(2*n-2)), name="C8")
+m.addConstrs((zijk[i, j, k] == xijk[i, j, k] for i in range(n) for j in range(n) for k in range(2*n-2) if i != j), name="C9")
+m.addConstrs((ytij[t, i, j] >= zijk[t, i, k] + zijk[t, j, k+1] - 1 for t in range(n) for i in range(n) for j in range(n) for k in range(2*n-3) if i != j), name="C10")
 
 # Optimize the model
 # Set the number of solutions to be stored in the solution pool to 1
