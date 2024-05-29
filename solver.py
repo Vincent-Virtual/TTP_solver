@@ -17,6 +17,7 @@ if len(sys.argv) > 1:
 
 else:
     print("No arguments provided.")
+    sys.exit(1)
 
 
 file_path = './Instances/{}.xml'.format(filename)
@@ -46,12 +47,12 @@ print()
 
 CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
 # S_current = initial_sa(copy.deepcopy(current_schedule))
-CSC_cost = calculate_total_distance(CSC_schedule, distance_matrix)
+CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
 
 print("after SA")
 output_schedule(CSC_schedule)
 print("violation is ", count_violations(CSC_schedule))
-print("cost is ", CSC_cost)
+print("distance is ", CSC_distance)
 
 
 print()

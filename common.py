@@ -52,10 +52,21 @@ def calculate_total_distance(schedule, distance_matrix):
             
     return total_distance
 
+# def output_schedule(schedule):
+#     for team_index, team_schedule in enumerate(schedule, start=1):
+#         print(f"Team {team_index}'s Schedule: {team_schedule}")
+
 def output_schedule(schedule):
     for team_index, team_schedule in enumerate(schedule, start=1):
-        print(f"Team {team_index}'s Schedule: {team_schedule}")
-
+        # Adjust the team index formatting to include an extra space for single-digit numbers
+        if team_index < 10:
+            team_str = f"Team  {team_index}'s Schedule: "  # Two spaces after 'Team' for single-digit team numbers
+        else:
+            team_str = f"Team {team_index}'s Schedule: "  # One space after 'Team' for double-digit team numbers
+        
+        # Format each game in the schedule to occupy exactly 3 characters
+        formatted_schedule = " ".join(f"{game: 3d}" for game in team_schedule)
+        print(f"{team_str}[{formatted_schedule}]")
 
 
 def count_violations(schedule):
@@ -92,7 +103,7 @@ def count_violations(schedule):
     total_violations = at_most_violations + no_repeater_violations
     return total_violations
 
-def cost_with_violations(schedule, distance_matrix, weight = 300):
+def cost_with_violations(schedule, distance_matrix, weight = 3000):
     violations = count_violations(schedule)
 
     if violations == 0:
