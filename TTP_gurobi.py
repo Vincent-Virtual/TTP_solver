@@ -27,44 +27,20 @@ zijk = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="zijk")
 initial_moves = gp.quicksum(dij[i][j] * xijk[i, j, 0] for i in range(n) for j in range(n))
 
 intermediate_moves = gp.quicksum(dij[i][j] * ytij[t, i, j] for t in range(n) for i in range(n) for j in range(n))
-# intermediate_0 = gp.quicksum(dij[0][j] * ytij[t, 0, j] for t in range(n) for j in range(n)) + \
-#                  gp.quicksum(dij[i][0] * ytij[t, i, 0] for t in range(n) for i in range(n))
-
-# intermediate_1 = gp.quicksum(dij[1][j] * ytij[t, 1, j] for t in range(n) for j in range(n)) + \
-#                  gp.quicksum(dij[i][1] * ytij[t, i, 1] for t in range(n) for i in range(n))
-
-# intermediate_2 = gp.quicksum(dij[2][j] * ytij[t, 2, j] for t in range(n) for j in range(n)) + \
-#                  gp.quicksum(dij[i][2] * ytij[t, i, 2] for t in range(n) for i in range(n))
-
-# intermediate_3 = gp.quicksum(dij[3][j] * ytij[t, 3, j] for t in range(n) for j in range(n)) + \
-                #  gp.quicksum(dij[i][3] * ytij[t, i, 3] for t in range(n) for i in range(n))
-
-intermediate_0 = gp.quicksum(dij[i][j] * ytij[0, i, j] for i in range(n) for j in range(n))
-
-intermediate_1 = gp.quicksum(dij[i][j] * ytij[1, i, j] for i in range(n) for j in range(n))
-
-intermediate_2 = gp.quicksum(dij[i][j] * ytij[2, i, j] for i in range(n) for j in range(n))
-
-intermediate_3 = gp.quicksum(dij[i][j] * ytij[3, i, j] for i in range(n) for j in range(n))
 
 back_moves = gp.quicksum(dij[j][i] * xijk[i, j, 2*n-3] for i in range(n) for j in range(n))
 
 # Set the objective function
-# obj = gp.quicksum(dij[i][j] * xijk[i, j, 0] for i in range(n) for j in range(n)) \
-#       + gp.quicksum(dij[i][j] * ytij[t, i, j] for t in range(n) for i in range(n) for j in range(n)) \
-#       + gp.quicksum(dij[j][i] * xijk[i, j, 2*n-3] for i in range(n) for j in range(n))
 
-obj = initial_moves + intermediate_0 + intermediate_1 + intermediate_2 + intermediate_3 + back_moves
-# obj = initial_moves + intermediate_moves + back_moves
+# obj = initial_moves + intermediate_0 + intermediate_1 + intermediate_2 + intermediate_3 + back_moves
+obj = initial_moves + intermediate_moves + back_moves
 
 m.setObjective(obj, GRB.MINIMIZE)
 
 # Add constraints
 
 # a team never plays against itself
-# m.addConstrs((gp.quicksum(xijk[i, j, k] for i in range(n) for j in range(n) for k in range(1, 2*n-2) if i == j) == 0), name="C2")
-
-m.addConstrs(xijk[i, i, k] == 0 for i in range(n) for k in range(2*n - 2))
+m.addConstrs((xijk[i, i, k] == 0 for i in range(n) for k in range(2*n - 2)), name = "C2")
 
 # each team to play exactly one match per day (either home or away)
 m.addConstrs((gp.quicksum(xijk[i, j, k] + xijk[j, i, k] for j in range(n)) == 1 for i in range(n) for k in range(2*n-2)), name="C3")
@@ -77,7 +53,7 @@ m.addConstrs((gp.quicksum(xijk[i, j, k] for k in range(2*n-2)) == 1 for i in ran
 m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for j in range(n)) <= 3 
                   for i in range(n) for k in range(2*n - 2 - 3)), name="C5")
 
-# Constraint (5): Ensure home stands and road trips have a length of at most 3
+# Constraint (6): Ensure home stands and road trips have a length of at most 3
 m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for i in range(n)) <= 3 
                   for j in range(n) for k in range(2*n - 2 - 3)), name="C6")
 
@@ -107,12 +83,9 @@ if m.status == GRB.OPTIMAL:
         if v.x > 0:
             print(f"{v.varName}: {v.x}")
     
-    print(initial_moves.getValue())
-    print("team 0", intermediate_0.getValue())
-    print("team 1", intermediate_1.getValue())
-    print("team 2", intermediate_2.getValue())
-    print("team 3", intermediate_3.getValue())
-    print(back_moves.getValue())
+    # print(initial_moves.getValue())
+
+    # print(back_moves.getValue())
 else:
     print("No optimal solution found")
 
