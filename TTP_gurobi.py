@@ -10,7 +10,7 @@ from common import read_xml_and_create_distance_matrix
 #        [6, 4, 3, 0, 7],
 #        [4, 2, 5, 7, 0]]  # Example distance matrix
 
-file_path = './Instances/CIRC4.xml'
+file_path = './Instances/NL4.xml'
 dij = read_xml_and_create_distance_matrix(file_path)
 
 n = len(dij)  # Example number of teams
@@ -79,9 +79,9 @@ m.optimize()
 # Output the results
 if m.status == GRB.OPTIMAL:
     print("Optimal solution found")
-    for v in m.getVars():
-        if v.x > 0:
-            print(f"{v.varName}: {v.x}")
+    # for v in m.getVars():
+    #     if v.x > 0:
+    #         print(f"{v.varName}: {v.x}")
     
     # print(initial_moves.getValue())
 
