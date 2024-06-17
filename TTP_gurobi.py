@@ -20,9 +20,21 @@ n = len(dij)  # Example number of teams
 m = gp.Model()
 
 # Define variables xijk, ytij, zijk
+
+## if team i plays away against team j in round k
 xijk = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="xijk")
+
+## if team t travels from team i's place to team j's place ever
 ytij = m.addVars(n, n, n, vtype=GRB.BINARY, name="ytij")
+
+
 zijk = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="zijk")
+
+
+xijk_tilde = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="xijk_tilde")
+
+
+
 
 initial_moves = gp.quicksum(dij[i][j] * xijk[i, j, 0] for i in range(n) for j in range(n))
 
