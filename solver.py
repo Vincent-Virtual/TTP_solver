@@ -10,6 +10,7 @@ import random
 import copy
 import time
 import sys
+import json
 
 filename = ""
 if len(sys.argv) > 1:
@@ -124,6 +125,9 @@ end_time = time.time()
 output_schedule(S_star)
 print("violation is ", count_violations(S_star))
 print("output distance is ", best_distance)
+
+with open('schedule.json', 'w') as file:
+    json.dump(S_star, file)
 
 assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they should be equal"
 

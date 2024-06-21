@@ -2,15 +2,13 @@ import gurobipy as gp
 from gurobipy import GRB
 from common import read_xml_and_create_distance_matrix
 
-# Assuming we have the distance matrix dij of n teams
-# n = 5  # Example number of teams
-# dij = [[0, 2, 9, 10, 1],
-#        [1, 0, 6, 4, 5],
-#        [3, 7, 0, 8, 2],
-#        [6, 4, 3, 0, 7],
-#        [4, 2, 5, 7, 0]]  # Example distance matrix
+import json
 
-file_path = './Instances/NL4.xml'
+with open('schedule.json', 'r') as file:
+    schedule = json.load(file)
+
+
+file_path = './Instances/CON6.xml'
 dij = read_xml_and_create_distance_matrix(file_path)
 
 n = len(dij)  # Example number of teams
@@ -33,8 +31,20 @@ zijk = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="zijk")
 
 xijk_tilde = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="xijk_tilde")
 
-
-
+# Set the variables according to the schedule
+for i in range(n):
+    for k in range(2*n-2):
+        if k < len(schedule[i]):  # Ensure we don't go out of index
+            opponent = schedule[i][k]
+            j = abs(opponent) - 1  # Convert opponent to zero-based index
+            if opponent < 0:
+                # If opponent is negative, team i is playing away
+                xijk_tilde[i, j, k].setAttr("UB", 1)  # Ensure the upper bound is 1 (since it's already a binary var)
+                xijk_tilde[i, j, k].setAttr("LB", 1)  # Lock this variable to 1 (team i plays away at team j)
+            else:
+                # If opponent is positive, ensure team i is not playing away at team j
+                xijk_tilde[i, j, k].setAttr("UB", 0)  # Lock this variable to 0
+                xijk_tilde[i, j, k].setAttr("LB", 0)  # Ensure the lower bound is 0
 
 initial_moves = gp.quicksum(dij[i][j] * xijk[i, j, 0] for i in range(n) for j in range(n))
 
@@ -50,6 +60,8 @@ obj = initial_moves + intermediate_moves + back_moves
 m.setObjective(obj, GRB.MINIMIZE)
 
 # Add constraints
+
+# m.addConstrs((xijk[i, i, k] + xijk[j, i, k] == xijk_tilde[i, j, k] + xijk_tilde[j, i, k] for i in range(n) for j in range(n) for k in range(2*n-2)), name = "C12")
 
 # a team never plays against itself
 m.addConstrs((xijk[i, i, k] == 0 for i in range(n) for k in range(2*n - 2)), name = "C2")
