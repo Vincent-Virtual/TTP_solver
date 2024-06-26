@@ -4,7 +4,7 @@ from common import read_xml_and_create_distance_matrix, output_schedule, calcula
 swap_round, swap_home, swap_team, count_violations, cost_with_violations
 
 from simulated_annealing import initial_sa
-from SLS import local_search, stochastic_local_search
+from SLS import stochastic_local_search
 
 import random
 import copy

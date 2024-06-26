@@ -111,6 +111,10 @@ def cost_with_violations(schedule, distance_matrix, weight = 3000):
     
     return math.sqrt(calculate_total_distance(schedule, distance_matrix)**2 + (weight*violations)**2)
 
+
+
+##Neighbourhood swaps
+
 def swap_round(schedule, round1_idx, round2_idx):
     """
     Swaps two rounds in the tournament schedule.
@@ -210,3 +214,9 @@ def swap_team(schedule, team1_idx, team2_idx):  ## should fix after swapping
         else:
             schedule[affected_team2_idx][i] = abs(schedule[affected_team2_idx][i])
     return schedule
+
+def partial_swap_round(schedule, team1_idx, team2_idx, team3_idx, team4_idx, i, j):
+    pass
+
+def partial_swap_team(schedule, team1_idx, team2_idx, i):
+    pass

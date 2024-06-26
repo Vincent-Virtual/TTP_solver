@@ -1,3 +1,4 @@
+## Try to extract the home away pattern for the teams for IP optimization
 # Given schedule as a 2D list
 schedule = [
     [-4,  6,  5, -3, -6, -2,  3, -5,  2,  4],  # Team 1's Schedule
