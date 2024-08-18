@@ -4,11 +4,11 @@ from common import read_xml_and_create_distance_matrix
 
 import json
 
-with open('schedule.json', 'r') as file:
-    schedule = json.load(file)
+# with open('schedule.json', 'r') as file:
+#     schedule = json.load(file)
 
 
-file_path = './Instances/CON6.xml'
+file_path = './Instances/CON4.xml'
 dij = read_xml_and_create_distance_matrix(file_path)
 
 n = len(dij)  # Example number of teams
@@ -32,19 +32,19 @@ zijk = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="zijk")
 xijk_tilde = m.addVars(n, n, 2*n-2, vtype=GRB.BINARY, name="xijk_tilde")
 
 # Set the variables according to the schedule
-for i in range(n):
-    for k in range(2*n-2):
-        if k < len(schedule[i]):  # Ensure we don't go out of index
-            opponent = schedule[i][k]
-            j = abs(opponent) - 1  # Convert opponent to zero-based index
-            if opponent < 0:
-                # If opponent is negative, team i is playing away
-                xijk_tilde[i, j, k].setAttr("UB", 1)  # Ensure the upper bound is 1 (since it's already a binary var)
-                xijk_tilde[i, j, k].setAttr("LB", 1)  # Lock this variable to 1 (team i plays away at team j)
-            else:
-                # If opponent is positive, ensure team i is not playing away at team j
-                xijk_tilde[i, j, k].setAttr("UB", 0)  # Lock this variable to 0
-                xijk_tilde[i, j, k].setAttr("LB", 0)  # Ensure the lower bound is 0
+# for i in range(n):
+#     for k in range(2*n-2):
+#         if k < len(schedule[i]):  # Ensure we don't go out of index
+#             opponent = schedule[i][k]
+#             j = abs(opponent) - 1  # Convert opponent to zero-based index
+#             if opponent < 0:
+#                 # If opponent is negative, team i is playing away
+#                 xijk_tilde[i, j, k].setAttr("UB", 1)  # Ensure the upper bound is 1 (since it's already a binary var)
+#                 xijk_tilde[i, j, k].setAttr("LB", 1)  # Lock this variable to 1 (team i plays away at team j)
+#             else:
+#                 # If opponent is positive, ensure team i is not playing away at team j
+#                 xijk_tilde[i, j, k].setAttr("UB", 0)  # Lock this variable to 0
+#                 xijk_tilde[i, j, k].setAttr("LB", 0)  # Ensure the lower bound is 0
 
 initial_moves = gp.quicksum(dij[i][j] * xijk[i, j, 0] for i in range(n) for j in range(n))
 

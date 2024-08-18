@@ -127,7 +127,13 @@ print("violation is ", count_violations(S_star))
 print("output distance is ", best_distance)
 
 with open('schedule.json', 'w') as file:
-    json.dump(S_star, file)
+    file.write('[')  # Start of the array
+    for i, sublist in enumerate(S_star):
+        json_string = json.dumps(sublist)  # Convert sublist to JSON string
+        if i < len(S_star) - 1:
+            json_string += ','  # Add comma except for the last item
+        file.write(json_string + '\n')  # Write the json string and move to new line
+    file.write(']')  # End of the array
 
 assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they should be equal"
 
