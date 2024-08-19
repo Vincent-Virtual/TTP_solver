@@ -15,6 +15,23 @@ def partial_swap_team(schedule, team1_idx, team2_idx, i):
         # Swap the opponents but keep the home/away status the same
         schedule[team1_idx][r], schedule[team2_idx][r] = (opponent1_sign * (opponent1_idx+1), opponent2_sign * (opponent2_idx+1))
 
+        # resolve mismatches in the round after swapping 2 teams
+        affected_team1_idx = abs(schedule[team1_idx][r]) - 1
+        affected_team2_idx = abs(schedule[team2_idx][r]) - 1
+        # print(affected_team1, affected_team2)
+
+        schedule[affected_team1_idx][r], schedule[affected_team2_idx][r] = \
+        schedule[affected_team2_idx][r], schedule[affected_team1_idx][r]
+
+        if schedule[team1_idx][r] > 0:
+            schedule[affected_team1_idx][r] = -abs(schedule[affected_team1_idx][r])
+        else:
+            schedule[affected_team1_idx][r] = abs(schedule[affected_team1_idx][r])
+
+        if schedule[team2_idx][r] > 0:
+            schedule[affected_team2_idx][r] = -abs(schedule[affected_team2_idx][r])
+        else:
+            schedule[affected_team2_idx][r] = abs(schedule[affected_team2_idx][r])
         return opponent1_sign, opponent1_idx
     
 
@@ -30,6 +47,9 @@ def partial_swap_team(schedule, team1_idx, team2_idx, i):
     
     # visited_rounds = set()
     while True:
+        # input()
+        output_schedule(schedule)
+
         # Find duplicate opponents in team1's and team2's schedules
         
         finish = 1
@@ -45,21 +65,24 @@ def partial_swap_team(schedule, team1_idx, team2_idx, i):
         
 
         opponent1_sign, opponent1_idx = swap_in_one_round(duplicate_round_team1)
-        input()
-        output_schedule(schedule)
+
+        
+        
     
     return schedule
 
-# Example usage
-schedule = [
-    [5, 1, -3, -6, 4, 3, 6, -4, -1, -5],  # Team 1
-    [3, 6, -1, -5, -2, 1, 5, 2, -6, -3]  # Team 2
-]
 
-team1_idx = 0  # Team 1
-team2_idx = 1  # Team 2
-round_i = 8  # Day 1 (index 0)
+# # Example usage
+# schedule = [
+#     [4, -3, 2, -4, 3, -2],  # Team 1
+#     [3, -4, -1, -3, 4, 1],  # Team 2
+#     [-2, 1, 4, 2, -1, -4],  # Team 3
+#     [-1, 2, -3, 1, -2, 3]   # Team 4
+# ]
 
-new_schedule = partial_swap_team(schedule, team1_idx, team2_idx, round_i)
-# for idx, team_schedule in enumerate(new_schedule):
-#     print(f"Team {idx + 1}'s Schedule: {team_schedule}")
+# team1_idx = 1  # Team 1
+# team2_idx = 2  # Team 2
+# round_i = 5  # Day 1 (index 0)
+
+# new_schedule = partial_swap_team(schedule, team1_idx, team2_idx, round_i)
+# output_schedule(new_schedule)
