@@ -129,9 +129,7 @@ def swap_round(schedule, round1_idx, round2_idx):
     # print(1)
     num_rounds = len(schedule)  # Assuming all teams play the same number of rounds
     
-    # Select two distinct rounds to swap
-    # round1_idx, round2_idx = random.sample(range(num_rounds), 2)
-    # print(round1_idx, round2_idx)
+    
     # Swap the selected rounds for all teams
     for team_schedule in schedule:
         # Swap the games in round1_idx and round2_idx for each team

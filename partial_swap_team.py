@@ -56,6 +56,7 @@ def partial_swap_team(schedule, team1_idx, team2_idx, i):
         for r in range(len(schedule[team1_idx])):
             if r != duplicate_round_team1 and schedule[team1_idx][r] == opponent1_sign * (opponent1_idx + 1):
                 duplicate_round_team1 = r
+                # still conflicts
                 finish = 0
                 break
             # if r != r and abs(schedule[team2_idx][r1]) == opponent2_idx + 1:
