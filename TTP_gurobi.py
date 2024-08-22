@@ -8,7 +8,7 @@ import json
 #     schedule = json.load(file)
 
 
-file_path = './Instances/CON4.xml'
+file_path = './Instances/CON8.xml'
 dij = read_xml_and_create_distance_matrix(file_path)
 
 n = len(dij)  # Example number of teams

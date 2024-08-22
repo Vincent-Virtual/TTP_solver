@@ -1,5 +1,7 @@
 import math
 import xml.etree.ElementTree as ET
+from partial_swap_round import partial_swap_round
+from partial_swap_team import partial_swap_team
 
 def read_xml_and_create_distance_matrix(file_path):
     # Parse the XML file
@@ -52,9 +54,6 @@ def calculate_total_distance(schedule, distance_matrix):
             
     return total_distance
 
-# def output_schedule(schedule):
-#     for team_index, team_schedule in enumerate(schedule, start=1):
-#         print(f"Team {team_index}'s Schedule: {team_schedule}")
 
 def output_schedule(schedule):
     for team_index, team_schedule in enumerate(schedule, start=1):
@@ -213,8 +212,10 @@ def swap_team(schedule, team1_idx, team2_idx):  ## should fix after swapping
             schedule[affected_team2_idx][i] = abs(schedule[affected_team2_idx][i])
     return schedule
 
-def partial_swap_round(schedule, team1_idx, team2_idx, team3_idx, team4_idx, i, j):
-    pass
 
-def partial_swap_team(schedule, team1_idx, team2_idx, i):
-    pass
+# def partial_swap_round(schedule, teamA_idx, round1_idx, round2_idx):
+#     pass
+
+
+# def partial_swap_team(schedule, team1_idx, team2_idx, i):
+#     pass

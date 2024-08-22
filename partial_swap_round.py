@@ -1,13 +1,12 @@
-import json
+# import json
 
-# with open('schedule.json', 'r') as file:
-#     schedule = json.load(file)
+# # with open('schedule.json', 'r') as file:
+# #     schedule = json.load(file)
 
-# find_pattern_in_schedule(schedule)
+# # find_pattern_in_schedule(schedule)
 
-from common import output_schedule
+# from common import output_schedule
 
-## Buggy
 def partial_swap_round(schedule, teamA_idx, round1_idx, round2_idx):
     """
     This function swaps A-B, C-D to A-C, B-D in round1, and vice versa in round 2
@@ -72,9 +71,9 @@ schedule = [
     # [-2, 1, 4, 2, -1, -4],  # Team 3
     # [-1, 2, -3, 1, -2, 3]   # Team 4
 
-team_idx = 1  # Team 1
-r1 = 1  # Day 1
-r2 = 8  # Day 2 (index 0)
+# team_idx = 1  # Team 1
+# r1 = 1  # Day 1
+# r2 = 8  # Day 2 (index 0)
 
-new_schedule = partial_swap_round(schedule, team_idx, r1, r2)
-new_schedule = output_schedule(schedule)
+# new_schedule = partial_swap_round(schedule, team_idx, r1, r2)
+# new_schedule = output_schedule(schedule)

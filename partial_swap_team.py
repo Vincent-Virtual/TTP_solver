@@ -1,4 +1,4 @@
-from common import output_schedule
+# from common import output_schedule
 
 def partial_swap_team(schedule, team1_idx, team2_idx, i):
     ## handles the swap of the 2 teams only within one round r
@@ -32,58 +32,54 @@ def partial_swap_team(schedule, team1_idx, team2_idx, i):
             schedule[affected_team2_idx][r] = -abs(schedule[affected_team2_idx][r])
         else:
             schedule[affected_team2_idx][r] = abs(schedule[affected_team2_idx][r])
-        return opponent1_sign, opponent1_idx
+
+        ## return the opponent that might causes duplicates, with its venue, not in idx
+        return opponent1_sign * (opponent1_idx + 1)
     
 
     # Track the current potential duplicate opponent in each team's schedule
-    opponent1_sign, opponent1_idx = swap_in_one_round(i) ## the initial swap expected by this neighbourhood, triggers the following adjustments
+    opponent1 = swap_in_one_round(i) ## the initial swap expected by this neighbourhood, triggers the following adjustments
     
     # Track the rounds whose opponents have been set for team1 and team2 which potentially cause duplicates
     duplicate_round_team1 = i
-    # duplicate_round_team2 = i
-
+    
     # Iteratively swap until no duplicates remain in each team's schedule,
     # equivalent to the opponent to remove of one team exactly matches the opponent the other team wants and vice versa
     
-    # visited_rounds = set()
-    while True:
-        # input()
-        output_schedule(schedule)
 
-        # Find duplicate opponents in team1's and team2's schedules
-        
+    while True:
+       
+        # Find duplicate opponents in team1's schedule
         finish = 1
         for r in range(len(schedule[team1_idx])):
-            if r != duplicate_round_team1 and schedule[team1_idx][r] == opponent1_sign * (opponent1_idx + 1):
+            if r != duplicate_round_team1 and schedule[team1_idx][r] == opponent1:
                 duplicate_round_team1 = r
                 # still conflicts
                 finish = 0
                 break
-            # if r != r and abs(schedule[team2_idx][r1]) == opponent2_idx + 1:
-            #     duplicate_round_team2 = r
+
         if finish:
             break
         
 
-        opponent1_sign, opponent1_idx = swap_in_one_round(duplicate_round_team1)
-
-        
-        
+        opponent1 = swap_in_one_round(duplicate_round_team1)
     
     return schedule
 
 
 # # Example usage
-# schedule = [
-#     [4, -3, 2, -4, 3, -2],  # Team 1
-#     [3, -4, -1, -3, 4, 1],  # Team 2
-#     [-2, 1, 4, 2, -1, -4],  # Team 3
-#     [-1, 2, -3, 1, -2, 3]   # Team 4
-# ]
+schedule = [
+    [6, -2, 4, 3, -5, -4, -3, 5, 2, -6],  # Team 1
+    [5, 1, -3, -6, 4, 3, 6, -4, -1, -5],  # Team 2
+    [-4, 5, 2, -1, 6, -2, 1, -6, -5, 4],  # Team 3
+    [3, 6, -1, -5, -2, 1, 5, 2, -6, -3],  # Team 4
+    [-2, -3, 6, 4, 1, -6, -4, -1, 3, 2],  # Team 5
+    [-1, -4, -5, 2, -3, 5, -2, 3, 4, 1],  # Team 6
+]
 
 # team1_idx = 1  # Team 1
-# team2_idx = 2  # Team 2
-# round_i = 5  # Day 1 (index 0)
+# team2_idx = 3  # Team 2
+# round_i = 8  # Day 1 (index 0)
 
 # new_schedule = partial_swap_team(schedule, team1_idx, team2_idx, round_i)
 # output_schedule(new_schedule)

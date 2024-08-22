@@ -1,7 +1,6 @@
 from ini_sche import generate_team_centric_schedule
 
-from common import read_xml_and_create_distance_matrix, output_schedule, calculate_total_distance, \
-swap_round, swap_home, swap_team, count_violations, cost_with_violations
+from common import *
 
 from simulated_annealing import initial_sa
 from SLS import stochastic_local_search
@@ -61,7 +60,7 @@ print()
 
 
 max_iterations = 2000
-neighbourhoods = [swap_round, swap_home, swap_team]
+neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
 ## aspiration
 k = 0
@@ -98,13 +97,14 @@ for i in range(max_iterations):
     while True:
         idx1, idx2 = random.sample(range(num_teams), 2)
 
-            # Generate the neighbor by swapping home/away status between the two teams
-        schedule1 = neighbourhoods[k](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
+            # Generate the neighbour by swapping home/away status between the two teams
+        schedule1 = neighbourhoods[k%3](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
         if count_violations(schedule1) == 0:
             S_prime = schedule1
             break
-
-    S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods[k], distance_matrix)
+    
+    
+    S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods[k], distance_matrix, k)
 
     if new_distance < S_distance:         ## f(S'') < f(S)
         S_current = S_2primes
