@@ -2,6 +2,8 @@
 
 from partial_swap_round import partial_swap_round
 
+from partial_swap_team import partial_swap_team
+
 def swap_round(schedule, round1_idx, round2_idx):
     """
     Swaps two rounds in the tournament schedule.

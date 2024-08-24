@@ -1,6 +1,7 @@
 # from common import output_schedule
 
 def partial_swap_team(schedule, team1_idx, team2_idx, i):
+    "partial swapping team!"
     ## handles the swap of the 2 teams only within one round r
     def swap_in_one_round(r):
         # Find the opponents of team1 and team2 on day i after this swap
@@ -66,16 +67,37 @@ def partial_swap_team(schedule, team1_idx, team2_idx, i):
     
     return schedule
 
+# def partial_swap_round(schedule, team1_idx, team2_idx):
+#     """
+#     This function swaps all matches in round1 and round2 except teams 
+#     who have the same opponent in both rounds
+#     """
+#     # print("p s round")
+#     num_teams = len(schedule)
+#     # teamA_schedule = schedule[teamA_idx]
+    
+#     unaffected_teams = []
+#     for team_idx in range(num_teams):
+#         if abs(schedule[team_idx][round1_idx]) == abs(schedule[team_idx][round2_idx]):
+#             unaffected_teams.append(team_idx)
+
+#     for team_idx in range(num_teams):
+#         if team_idx not in unaffected_teams:
+#             schedule[team_idx][round1_idx], schedule[team_idx][round2_idx] = \
+#             schedule[team_idx][round2_idx], schedule[team_idx][round1_idx]
+
+#     return schedule
+
 
 # # Example usage
-schedule = [
-    [6, -2, 4, 3, -5, -4, -3, 5, 2, -6],  # Team 1
-    [5, 1, -3, -6, 4, 3, 6, -4, -1, -5],  # Team 2
-    [-4, 5, 2, -1, 6, -2, 1, -6, -5, 4],  # Team 3
-    [3, 6, -1, -5, -2, 1, 5, 2, -6, -3],  # Team 4
-    [-2, -3, 6, 4, 1, -6, -4, -1, 3, 2],  # Team 5
-    [-1, -4, -5, 2, -3, 5, -2, 3, 4, 1],  # Team 6
-]
+# schedule = [
+#     [6, -2, 4, 3, -5, -4, -3, 5, 2, -6],  # Team 1
+#     [5, 1, -3, -6, 4, 3, 6, -4, -1, -5],  # Team 2
+#     [-4, 5, 2, -1, 6, -2, 1, -6, -5, 4],  # Team 3
+#     [3, 6, -1, -5, -2, 1, 5, 2, -6, -3],  # Team 4
+#     [-2, -3, 6, 4, 1, -6, -4, -1, 3, 2],  # Team 5
+#     [-1, -4, -5, 2, -3, 5, -2, 3, 4, 1],  # Team 6
+# ]
 
 # team1_idx = 1  # Team 1
 # team2_idx = 3  # Team 2

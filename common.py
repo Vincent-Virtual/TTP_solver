@@ -1,7 +1,5 @@
 import math
 import xml.etree.ElementTree as ET
-from partial_swap_round import partial_swap_round
-from partial_swap_team import partial_swap_team
 
 def read_xml_and_create_distance_matrix(file_path):
     # Parse the XML file
@@ -110,11 +108,3 @@ def cost_with_violations(schedule, distance_matrix, weight = 3000):
     
     return math.sqrt(calculate_total_distance(schedule, distance_matrix)**2 + (weight*violations)**2)
 
-
-
-# def partial_swap_round(schedule, teamA_idx, round1_idx, round2_idx):
-#     pass
-
-
-# def partial_swap_team(schedule, team1_idx, team2_idx, i):
-#     pass

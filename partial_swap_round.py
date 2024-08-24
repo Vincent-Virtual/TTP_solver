@@ -16,7 +16,7 @@ def partial_swap_round(schedule, round1_idx, round2_idx):
     This function swaps all matches in round1 and round2 except teams 
     who have the same opponent in both rounds
     """
-    # print("p s round")
+    print("p s round")
     num_teams = len(schedule)
     # teamA_schedule = schedule[teamA_idx]
     
