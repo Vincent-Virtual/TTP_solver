@@ -116,7 +116,7 @@ for i in range(max_iterations):
         print(i, S_distance)
 
     else:
-        k = (k+1)%3
+        k = (k+1)%4
     
     # print(i, S_distance)
 

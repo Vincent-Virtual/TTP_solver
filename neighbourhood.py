@@ -1,5 +1,6 @@
-
 ##Neighbourhood swaps
+
+from partial_swap_round import partial_swap_round
 
 def swap_round(schedule, round1_idx, round2_idx):
     """
