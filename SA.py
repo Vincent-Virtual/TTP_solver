@@ -2,6 +2,7 @@ import sys, random, math
 
 from common import *
 from ini_sche import generate_team_centric_schedule
+from neighbourhood import *
 
 filename = ""
 if len(sys.argv) > 1:

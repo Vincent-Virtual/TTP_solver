@@ -2,7 +2,8 @@ import random
 import math
 import copy
 from ini_sche import generate_team_centric_schedule
-from common import swap_round, calculate_total_distance, count_violations, cost_with_violations, output_schedule
+from common import *
+from neighbourhood import *
 
 # SA for VNS
 # def initial_sa(SC_schedule, distance_matrix = None, initial_temp = 10000, max_iterations = 3000, cooling_rate = 0.9):
