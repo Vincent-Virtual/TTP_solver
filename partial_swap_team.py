@@ -1,4 +1,19 @@
+# def output_schedule(schedule):
+#     for team_index, team_schedule in enumerate(schedule, start=1):
+#         # Adjust the team index formatting to include an extra space for single-digit numbers
+#         if team_index < 10:
+#             team_str = f"Team  {team_index}'s Schedule: "  # Two spaces after 'Team' for single-digit team numbers
+#         else:
+#             team_str = f"Team {team_index}'s Schedule: "  # One space after 'Team' for double-digit team numbers
+        
+#         # Format each game in the schedule to occupy exactly 3 characters
+#         formatted_schedule = " ".join(f"{game: 3d}" for game in team_schedule)
+#         print(f"{team_str}[{formatted_schedule}]")
+
+
+
 def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
+    num_rounds = len(schedule[0])
     # print(start_round, len(schedule[team1_idx]))
     # print(len(schedule[team1_idx]))
     # print(start_round)
@@ -7,57 +22,72 @@ def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
         return schedule
 
 
-    def find_conflict_loop(schedule, team1_idx, team2_idx, start_round):
-        loop_indices = []
-        visited_rounds = set()
-        
-        current_round = start_round
-        while current_round not in visited_rounds:
-            print("in while loop")
-            visited_rounds.add(current_round)
-            loop_indices.append(current_round)
-            
-            # Get the current opponents for both teams in this round
-            current_opponent_team1 = schedule[team1_idx][current_round]
-            current_opponent_team2 = schedule[team2_idx][current_round]
-            
-            # Find the next round where the current opponent of team1 is scheduled to play against team2
-            # or the current opponent of team2 is scheduled to play against team1
-            if current_opponent_team1 in schedule[team2_idx]:
-                next_round = schedule[team2_idx].index(current_opponent_team1)
-            else:
-                next_round = schedule[team1_idx].index(current_opponent_team2)
-            
-            current_round = next_round
-        
-        return loop_indices
+    opponent1 = schedule[team1_idx][start_round]
+    opponent2 = schedule[team2_idx][start_round]
+    visited_rounds = set()
+    visited_rounds.add(start_round)
 
-    def swap_opponents(schedule, team1_idx, team2_idx, round):
-        # Swap the opponents of team1 and team2 in the specified round
-        temp = schedule[team1_idx][round]
-        schedule[team1_idx][round] = schedule[team2_idx][round]
-        schedule[team2_idx][round] = temp
-    
-    # Find the rounds that need to be swapped
-    loop_indices = find_conflict_loop(schedule, team1_idx, team2_idx, start_round)
-    
-    # Perform the swaps for all the rounds in the loop
-    for i in loop_indices:
-        swap_opponents(schedule, team1_idx, team2_idx, i)
+    # checking_team_idx = team1_idx
+    checking_opponent = opponent2
 
+    ## Check if finally the opponent to reset coincides with oppo1 who triggers everything
+    while checking_opponent != opponent1:
+        for r in range(num_rounds):
+            ## check the potential duplicate entry with its round in team1's schedule 
+            # after geting "checking opponent" from team2's schedule
+            if schedule[team1_idx][r] == checking_opponent:
+                ## update the checking oppo in team2's schedule
+                checking_opponent = schedule[team2_idx][r]
+                visited_rounds.add(r)
+                # input()
+                # print(r, checking_opponent)
+                break
+            
+
+    for r in visited_rounds:
+        # Swap the games except the ones they play against each other
+        schedule[team1_idx][r], schedule[team2_idx][r] = schedule[team2_idx][r], schedule[team1_idx][r]
+
+        # resolve mismatches in the round after swapping 2 teams
+        affected_team1_idx = abs(schedule[team1_idx][r]) - 1
+        affected_team2_idx = abs(schedule[team2_idx][r]) - 1
+        # print(affected_team1, affected_team2)
+
+        schedule[affected_team1_idx][r], schedule[affected_team2_idx][r] = \
+        schedule[affected_team2_idx][r], schedule[affected_team1_idx][r]
+
+        if schedule[team1_idx][r] > 0:
+            schedule[affected_team1_idx][r] = -abs(schedule[affected_team1_idx][r])
+        else:
+            schedule[affected_team1_idx][r] = abs(schedule[affected_team1_idx][r])
+
+        if schedule[team2_idx][r] > 0:
+            schedule[affected_team2_idx][r] = -abs(schedule[affected_team2_idx][r])
+        else:
+            schedule[affected_team2_idx][r] = abs(schedule[affected_team2_idx][r])
     return schedule
+    
+
+# schedule = [
+#     [6, -2, 2, 3, -5, -4, -3, 5, 4, -6],  # Team 1
+#     [5, 1, -1, -5, 4, 3, 6, -4, -6, -3],  # Team 2
+#     [-4, 5, 4, -1, 6, -2, 1, -6, -5, 2],  # Team 3
+#     [3, 6, -3, -6, -2, 1, 5, 2, -1, -5],  # Team 4
+#     [-2, -3, 6, 2, 1, -6, -4, -1, 3, 4],  # Team 5
+#     [-1, -4, -5, 4, -3, 5, -2, 3, 2, 1],  # Team 6
+# #     [4, -3, 2, -4, 3, -2],  # Team 1
+# #     [3, -4, -1, -3, 4, 1],  # Team 2
+# #     [-2, 1, 4, 2, -1, -4],  # Team 3
+# #     [-1, 2, -3, 1, -2, 3]   # Team 4
+# ]
 
 
+# team1_idx = 1  # Index of team 1 in the schedule
+# team2_idx = 2  # Index of team 2 in the schedule
+# start_round = 2  # For example, swap the second round (index 1)
 
-# team1_schedule = [3, 5, 1, -6, -5, -4, 6, 4, -1, -3]
-# team2_schedule = [-2, -4, -5, 1, 4, -6, -1, 6, 5, 2]
+# schedule = partial_swap_team(schedule, team1_idx, team2_idx, start_round)
+# output_schedule(schedule)
 
-# schedule = [team1_schedule, team2_schedule]
-# team1_idx = 0  # Index of team 1 in the schedule
-# team2_idx = 1  # Index of team 2 in the schedule
-# start_round = 1  # For example, swap the second round (index 1)
-
-# partial_swap_team(schedule, team1_idx, team2_idx, start_round)
-
-# print(schedule[team1_idx])  # Updated schedule for team1
-# print(schedule[team2_idx])  # Updated schedule for team2
+# # print(schedule[team1_idx])  # Updated schedule for team1
+# # print(schedule[team2_idx])  # Updated schedule for team2

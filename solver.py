@@ -100,7 +100,6 @@ for i in range(max_iterations):
 
         if k == 4:
             start_round = random.randrange((num_teams-1) * 2)
-            print(num_teams, start_round)
             schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, start_round)
         else:
             schedule1 = neighbourhoods[k](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
@@ -122,7 +121,7 @@ for i in range(max_iterations):
         print(i, S_distance)
 
     else:
-        k = (k+1)%4 ## change to 5 for partial swap team
+        k = (k+1)%5 ## change to 5 for partial swap team
     
     # print(i, S_distance)
 
