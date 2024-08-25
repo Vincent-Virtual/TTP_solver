@@ -96,9 +96,15 @@ for i in range(max_iterations):
 
     while True:
         idx1, idx2 = random.sample(range(num_teams), 2)
+        schedule1 = None
 
-            # Generate the neighbour by swapping home/away status between the two teams
-        schedule1 = neighbourhoods[k](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
+        if k == 4:
+            start_round = random.randrange((num_teams-1) * 2)
+            print(num_teams, start_round)
+            schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, start_round)
+        else:
+            schedule1 = neighbourhoods[k](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
+
         if count_violations(schedule1) == 0:
             S_prime = schedule1
             break

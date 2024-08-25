@@ -30,9 +30,10 @@ def stochastic_local_search(schedule, neighbourhood, distance_matrix, k):
         schedule1 = None
 
         if k == 4:
-            teamA_idx = random.randrange(n)
-            round1_idx, round2_idx = random.sample(range(n), 2)
-            schedule1 = neighbourhood(copy.deepcopy(schedule), teamA_idx, round1_idx, round2_idx)
+            start_round = random.randrange((n-1)*2)
+            # print(start_round, n)
+            team1_idx, team2_idx = random.sample(range(n), 2)
+            schedule1 = neighbourhood(copy.deepcopy(schedule), team1_idx, team2_idx, start_round)
             
         else: # k = 0, 1, 2, 3
             i, j = random.sample(range(n), 2)
