@@ -43,7 +43,7 @@ def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
                 # print(r, checking_opponent)
                 break
             
-
+    # print("ps team")
     for r in visited_rounds:
         # Swap the games except the ones they play against each other
         schedule[team1_idx][r], schedule[team2_idx][r] = schedule[team2_idx][r], schedule[team1_idx][r]
