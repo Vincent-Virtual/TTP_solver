@@ -36,8 +36,8 @@ def stochastic_local_search(schedule, neighbourhood, distance_matrix, k):
         # elif k == 4:
         #     other_idx = random.randrange((num_teams-1) * 2)
         #     schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, other_idx)
-
-        if k == 3 or 4:
+        # print(k)
+        if k == 3 or k == 4:
             other_idx = -100
             if k == 3:
                 other_idx = random.randrange(n)
