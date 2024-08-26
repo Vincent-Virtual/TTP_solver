@@ -17,7 +17,7 @@ def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
     # print(start_round, len(schedule[team1_idx]))
     # print(len(schedule[team1_idx]))
     # print(start_round)
-    schedule[team1_idx][start_round]
+
     if abs(schedule[team1_idx][start_round]) == team2_idx + 1:
         return schedule
 

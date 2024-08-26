@@ -98,10 +98,15 @@ for i in range(max_iterations):
         idx1, idx2 = random.sample(range(num_teams), 2)
         schedule1 = None
 
-        if k == 4:
-            start_round = random.randrange((num_teams-1) * 2)
-            schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, start_round)
-        else:
+        if k == 3:
+            other_idx = random.randrange(num_teams)
+            schedule1 = partial_swap_round(copy.deepcopy(S_current), idx1, idx2, other_idx)
+
+        elif k == 4:
+            other_idx = random.randrange((num_teams-1) * 2)
+            schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, other_idx)
+        
+        else: # k = 0, 1, 2
             schedule1 = neighbourhoods[k](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
 
         if count_violations(schedule1) == 0:

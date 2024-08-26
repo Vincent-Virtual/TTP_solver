@@ -29,13 +29,26 @@ def stochastic_local_search(schedule, neighbourhood, distance_matrix, k):
     while True:
         schedule1 = None
 
-        if k == 4:
-            start_round = random.randrange((n-1)*2)
+        # if k == 3:
+        #     other_idx = random.randrange(num_teams)
+        #     schedule1 = partial_swap_round(copy.deepcopy(S_current), idx1, idx2, other_idx)
+
+        # elif k == 4:
+        #     other_idx = random.randrange((num_teams-1) * 2)
+        #     schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, other_idx)
+
+        if k == 3 or 4:
+            other_idx = -100
+            if k == 3:
+                other_idx = random.randrange(n)
+            if k == 4:
+                other_idx = random.randrange((n-1) * 2)
+
             # print(start_round, n)
-            team1_idx, team2_idx = random.sample(range(n), 2)
-            schedule1 = neighbourhood(copy.deepcopy(schedule), team1_idx, team2_idx, start_round)
+            idx1, idx2 = random.sample(range(n), 2)
+            schedule1 = neighbourhood(copy.deepcopy(schedule), idx1, idx2, other_idx)
             
-        else: # k = 0, 1, 2, 3
+        else: # k = 0, 1, 2
             i, j = random.sample(range(n), 2)
             # Generate the neighbor by swapping home/away status between the two teams
             schedule1 = neighbourhood(copy.deepcopy(schedule), i, j)  # Create a deep copy
