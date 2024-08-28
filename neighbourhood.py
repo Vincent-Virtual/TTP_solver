@@ -22,14 +22,15 @@ def swap_round(schedule, round1_idx, round2_idx):
     # Swap the selected rounds for all teams
     for team_schedule in schedule:
         # Swap the games in round1_idx and round2_idx for each team
-        team_schedule[round1_idx], team_schedule[round2_idx] = team_schedule[round2_idx], team_schedule[round1_idx]
+        team_schedule[round1_idx], team_schedule[round2_idx] = \
+        team_schedule[round2_idx], team_schedule[round1_idx]
     
     return schedule
 
 
 def swap_home(schedule, team1_idx, team2_idx):
     """
-    Randomly selects two different teams and swaps their home and away games against each other
+    Selects two different teams and swaps their home and away games against each other
     in the tournament schedule.
     """
 
@@ -60,17 +61,14 @@ def swap_home(schedule, team1_idx, team2_idx):
     return schedule
 
 
-def swap_team(schedule, team1_idx, team2_idx):  ## should fix after swapping
+def swap_team(schedule, team1_idx, team2_idx):
     
 #     """
 #     Swaps the schedules of two randomly selected teams except for the games
 #     between the two teams.
 #     """
 
-    # print(3)
     num_teams = len(schedule)
-    # team1_idx, team2_idx = random.sample(range(num_teams), 2)  # Randomly select two different teams
-    # print(team1_idx, team2_idx)
 
     # Find the games between the selected teams and preserve them
     for i in range(len(schedule[0])):

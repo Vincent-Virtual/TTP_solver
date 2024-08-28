@@ -38,7 +38,7 @@ neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_
 # Start the main loop with a phase limit
 while phase <= maxP:
     print("phase is ", phase)
-    phase = 0
+    # phase = 0
     counter = 0
 
     # Inner loop with a counter limit
@@ -55,12 +55,12 @@ while phase <= maxP:
         if k == 3:
             teamA_idx = random.randrange(num_teams)
             round1_idx, round2_idx = random.sample(range(num_teams), 2)
-            S_prime = partial_swap_round(S, teamA_idx, round1_idx, round2_idx)
+            S_prime = partial_swap_round(S, round1_idx, round2_idx, teamA_idx)
 
         if k == 4:
-            i = random.randrange(num_teams) # a random round
+            round_idx = random.randrange(num_teams) # a random round
             team1_idx, team2_idx = random.sample(range(num_teams), 2)
-            S_prime = partial_swap_team(S, i, team1_idx, team2_idx)
+            S_prime = partial_swap_team(S, team1_idx, team2_idx, round_idx)
         # m = select_random_move_from_neighborhood(S)
         # S_prime = apply_move(S, m)
         # print(k)
@@ -93,6 +93,7 @@ while phase <= maxP:
             counter += 1
     
     # Increment phase and decrease temperature
+    print("increment phase")
     phase += 1
     T = T * beta
 

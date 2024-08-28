@@ -1,0 +1,3 @@
+Result 1: 44
+Result 2: 46
+Average result over 2 runs for CON6 is: 45.00

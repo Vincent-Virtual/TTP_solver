@@ -46,7 +46,7 @@ print()
 # S_cost = current_cost
 
 CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
-# S_current = initial_sa(copy.deepcopy(current_schedule))
+# CSC_schedule = initial_schedule
 CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
 
 print("after SA")
@@ -59,7 +59,7 @@ print()
 # input()
 
 
-max_iterations = 2000
+max_iterations = 8000
 neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
 ## aspiration
@@ -150,6 +150,8 @@ assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they
 # Calculate and print the elapsed time
 elapsed_time = end_time - start_time
 print(f"Execution time: {elapsed_time} seconds")
+
+print(best_distance)
 
 
 

@@ -1,0 +1,3 @@
+Result 1: 8276
+Result 2: 8552
+Average result over 2 runs for NL4 is: 8414.00
