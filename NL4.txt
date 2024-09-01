@@ -1,3 +1,23 @@
 Result 1: 8276
 Result 2: 8552
 Average result over 2 runs for NL4 is: 8414.00
+Results for NL4 at 2024-09-01 20:27:59
+Result 1: 8290
+Result 2: 8276
+Average result over 2 runs for NL4 is: 8283.00
+
+Results for NL4 at 2024-09-01 20:30:18
+Result 1: 8276
+Result 2: 8276
+Average result over 2 runs for NL4 is: 8276.00
+
+Results for NL4 at 2024-09-01 20:36:48
+Result 1: 8276
+Result 2: 8276
+Average result over 2 runs for NL4 is: 8276.00
+
+Results for NL4 at 2024-09-01 22:24:51
+Result 1: 8276
+Result 2: 8290
+Average result over 2 runs for NL4 is: 8283.00
+

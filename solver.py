@@ -36,22 +36,25 @@ initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
 print("initial schedule is")
 output_schedule(initial_schedule)
-# input()
+
 print("initial violation is ", count_violations(initial_schedule))
-# input()
 print("initial distance is ", initial_distance)
 print()
 
-# S_current = current_schedule
-# S_cost = current_cost
+
 
 CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
-# CSC_schedule = initial_schedule
 CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
+
+violations = count_violations(CSC_schedule)
 
 print("after SA")
 output_schedule(CSC_schedule)
-print("violation is ", count_violations(CSC_schedule))
+print("violation is ", violations)
+
+if violations != 0:
+    sys.exit(1)
+
 print("distance is ", CSC_distance)
 
 
@@ -59,7 +62,7 @@ print()
 # input()
 
 
-max_iterations = 8000
+max_iterations = 2000
 neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
 ## aspiration

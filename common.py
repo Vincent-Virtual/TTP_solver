@@ -100,8 +100,8 @@ def count_violations(schedule):
     total_violations = at_most_violations + no_repeater_violations
     return total_violations
 
-## weight shouldn't be set to low otherwise no feasible schedule after initial SA for VNS
-def cost_with_violations(schedule, distance_matrix, weight = 3000):
+## weight shouldn't be set too low otherwise no feasible schedule after initial SA for VNS
+def cost_with_violations(schedule, distance_matrix, weight = 5000):
     violations = count_violations(schedule)
 
     if violations == 0:

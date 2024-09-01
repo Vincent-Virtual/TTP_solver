@@ -1,3 +1,19 @@
 Result 1: 28257
 Result 2: 26672
 Average result over 2 runs for NL6 is: 27464.50
+Results for NL6 at 2024-09-01 20:28:00
+Result 1: 26758
+Result 2: 27444
+Average result over 2 runs for NL6 is: 27101.00
+
+
+Results for NL6 at 2024-09-01 20:36:49
+Result 1: violation is  2
+Result 2: violation is  2
+Average result over 2 runs for NL6 is: 
+
+Results for NL6 at 2024-09-01 22:24:52
+Result 1: violation is  1
+Result 2: violation is  1
+Average result over 2 runs for NL6 is: 
+

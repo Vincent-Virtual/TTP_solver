@@ -1,3 +1,24 @@
 Result 1: 44
 Result 2: 46
 Average result over 2 runs for CON6 is: 45.00
+
+Results for CON6 at 2024-09-01 20:27:56
+Result 1: 46
+Result 2: 44
+Average result over 2 runs for CON6 is: 45.00
+
+Results for CON6 at 2024-09-01 20:30:15
+Result 1: 44
+Result 2: 46
+Average result over 2 runs for CON6 is: 45.00
+
+Results for CON6 at 2024-09-01 20:36:46
+Result 1: 44
+Result 2: 44
+Average result over 2 runs for CON6 is: 44.00
+
+Results for CON6 at 2024-09-01 22:24:49
+Result 1: 44
+Result 2: 44
+Average result over 2 runs for CON6 is: 44.00
+

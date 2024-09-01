@@ -3,6 +3,10 @@
 # Define a list of arguments
 args=("CON4" "CON6" "NL4" "NL6")
 
+#"CON4" "CON6" "CON8" "CON10" "CON12" "CON14" "CON16" 
+#"NL4" "NL6" "NL8" "NL10" "NL12" "NL14" "NL16"
+#"CIRC6" "CIRC8" "CIRC10"
+
 # Number of runs per argument
 runs=2
 
@@ -13,8 +17,11 @@ do
     total=0
     output_file="${arg}.txt"
 
-    # Clear or create the output file for this argument
-    > "$output_file"
+    # Get the current timestamp
+    timestamp=$(date "+%Y-%m-%d %H:%M:%S")
+
+    # Append the timestamp as a header in the output file
+    echo "Results for $arg at $timestamp" >> "$output_file"
 
     # Loop to run the Python script multiple times for the current argument
     for ((i=1; i<=runs; i++))
@@ -31,6 +38,7 @@ do
 
     # Write the average to the corresponding output file
     echo "Average result over $runs runs for $arg is: $average" >> "$output_file"
+    echo "" >> "$output_file" # Add an empty line for separation
 done
 
 # Notify completion
