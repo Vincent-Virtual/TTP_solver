@@ -1,0 +1,7 @@
+Results for CON14 at 2024-09-01 22:59:45
+Result 1: 274
+Results for CON14 at 2024-09-01 23:27:38
+Result 1: 272
+Result 2: 279
+Average result over 2 runs for CON14 is: 275.50
+

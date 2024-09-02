@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define a list of arguments
-args=("CON4" "CON6" "NL4" "NL6")
+args=("CON4" "CON6" "CON8" "NL4" "NL6" "NL8" "NL10" "CIRC6" "CIRC8" "CIRC10")
 
 #"CON4" "CON6" "CON8" "CON10" "CON12" "CON14" "CON16" 
 #"NL4" "NL6" "NL8" "NL10" "NL12" "NL14" "NL16"
@@ -10,12 +10,20 @@ args=("CON4" "CON6" "NL4" "NL6")
 # Number of runs per argument
 runs=2
 
+# Ask for a header input
+    echo "Enter a header line:"
+    read header
+
 # Loop over each argument in the list
 for arg in "${args[@]}"
 do
     # Initialize total for this argument
     total=0
     output_file="${arg}.txt"
+
+    
+    # Print the header in the output file
+    echo "$header" >> "$output_file"
 
     # Get the current timestamp
     timestamp=$(date "+%Y-%m-%d %H:%M:%S")

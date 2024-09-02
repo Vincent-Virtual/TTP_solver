@@ -26,3 +26,34 @@ Result 1: 17
 Result 2: 17
 Average result over 2 runs for CON4 is: 17.00
 
+Results for CON4 at 2024-09-01 22:48:28
+Result 1: 17
+Result 2: 17
+Average result over 2 runs for CON4 is: 17.00
+
+Results for CON4 at 2024-09-01 22:50:24
+Result 1: 17
+Result 2: 17
+Average result over 2 runs for CON4 is: 17.00
+
+Results for CON4 at 2024-09-01 22:59:20
+Result 1: 17
+Result 2: 17
+Average result over 2 runs for CON4 is: 17.00
+
+Results for CON4 at 2024-09-01 22:59:24
+Result 1: 17
+Result 2: 17
+Average result over 2 runs for CON4 is: 17.00
+
+Results for CON4 at 2024-09-02 08:46:39
+Result 1: 17
+Result 2: 18
+Average result over 2 runs for CON4 is: 17.50
+
+back to frequent alternation ini schedule, previous less frequent
+Results for CON4 at 2024-09-02 09:03:37
+Result 1: 17
+Result 2: 17
+Average result over 2 runs for CON4 is: 17.00
+

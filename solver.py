@@ -43,9 +43,12 @@ print()
 
 
 
-CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
-CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
+# CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
+# CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
 
+# Try not to use the initial_SA
+CSC_schedule = initial_schedule
+CSC_distance = initial_distance
 violations = count_violations(CSC_schedule)
 
 print("after SA")
@@ -94,10 +97,12 @@ S_distance = S0_distance
 
 ## main loop
 for i in range(max_iterations):
-
+    print(i)
     S_prime = None
-
-    while True:
+    
+    j = 0
+    while j < num_teams * 2:
+    # while True:
         idx1, idx2 = random.sample(range(num_teams), 2)
         schedule1 = None
 
@@ -115,7 +120,12 @@ for i in range(max_iterations):
         if count_violations(schedule1) == 0:
             S_prime = schedule1
             break
+
+        j += 1
     
+    print("while loop end")
+    if j == num_teams * 2:  ## the previous loop can't find a feasible random neighbour
+        S_prime = S_current
     
     S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods[k], distance_matrix, k)
 
@@ -154,7 +164,7 @@ assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they
 elapsed_time = end_time - start_time
 print(f"Execution time: {elapsed_time} seconds")
 
-print(best_distance)
+print(best_distance, elapsed_time)
 
 
 

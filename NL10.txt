@@ -1,0 +1,11 @@
+Results for NL10 at 2024-09-01 23:28:30
+Result 1: 76190
+Result 2: 75210
+Average result over 2 runs for NL10 is: 75700.00
+
+back to frequent alternation ini schedule, previous less frequent
+Results for NL10 at 2024-09-02 09:03:51
+Result 1: 72101
+Result 2: violation is  2
+Average result over 2 runs for NL10 is: 
+

@@ -1,0 +1,11 @@
+Results for NL8 at 2024-09-01 23:28:26
+Result 1: 47290
+Result 2: 44491
+Average result over 2 runs for NL8 is: 45890.50
+
+back to frequent alternation ini schedule, previous less frequent
+Results for NL8 at 2024-09-02 09:03:48
+Result 1: 48984
+Result 2: violation is  2
+Average result over 2 runs for NL8 is: 
+

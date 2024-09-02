@@ -1,0 +1,11 @@
+Results for CIRC8 at 2024-09-01 23:33:33
+Result 1: 170
+Result 2: 174
+Average result over 2 runs for CIRC8 is: 172.00
+
+back to frequent alternation ini schedule, previous less frequent
+Results for CIRC8 at 2024-09-02 09:03:59
+Result 1: 166
+Result 2: 168
+Average result over 2 runs for CIRC8 is: 167.00
+

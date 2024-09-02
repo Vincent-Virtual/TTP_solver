@@ -1,0 +1,11 @@
+Results for CIRC10 at 2024-09-01 23:33:36
+Result 1: 328
+Result 2: 330
+Average result over 2 runs for CIRC10 is: 329.00
+
+back to frequent alternation ini schedule, previous less frequent
+Results for CIRC10 at 2024-09-02 09:04:04
+Result 1: 326
+Result 2: 334
+Average result over 2 runs for CIRC10 is: 330.00
+

@@ -1,0 +1,16 @@
+Results for CON8 at 2024-09-01 22:59:25
+Result 1: 84
+Result 2: 85
+Average result over 2 runs for CON8 is: 84.50
+
+Results for CON8 at 2024-09-02 08:46:43
+Result 1: 84
+Result 2: 87
+Average result over 2 runs for CON8 is: 85.50
+
+back to frequent alternation ini schedule, previous less frequent
+Results for CON8 at 2024-09-02 09:03:40
+Result 1: 85
+Result 2: 82
+Average result over 2 runs for CON8 is: 83.50
+

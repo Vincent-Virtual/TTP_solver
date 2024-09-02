@@ -22,3 +22,34 @@ Result 1: 44
 Result 2: 44
 Average result over 2 runs for CON6 is: 44.00
 
+Results for CON6 at 2024-09-01 22:48:29
+Result 1: 44
+Result 2: 44
+Average result over 2 runs for CON6 is: 44.00
+
+Results for CON6 at 2024-09-01 22:50:25
+Result 1: 44
+Result 2: 45
+Average result over 2 runs for CON6 is: 44.50
+
+Results for CON6 at 2024-09-01 22:59:20
+Result 1: 43
+Result 2: 46
+Average result over 2 runs for CON6 is: 44.50
+
+Results for CON6 at 2024-09-01 22:59:24
+Result 1: 45
+Result 2: 45
+Average result over 2 runs for CON6 is: 45.00
+
+Results for CON6 at 2024-09-02 08:46:40
+Result 1: 44
+Result 2: 44
+Average result over 2 runs for CON6 is: 44.00
+
+back to frequent alternation ini schedule, previous less frequent
+Results for CON6 at 2024-09-02 09:03:38
+Result 1: 44
+Result 2: 44
+Average result over 2 runs for CON6 is: 44.00
+

@@ -17,3 +17,30 @@ Result 1: violation is  1
 Result 2: violation is  1
 Average result over 2 runs for NL6 is: 
 
+Results for NL6 at 2024-09-01 22:48:33
+Result 1: violation is  1
+Result 2: 25655
+Average result over 2 runs for NL6 is: 
+
+Results for NL6 at 2024-09-01 22:50:26
+Result 1: 24971
+Result 2: 25470
+Average result over 2 runs for NL6 is: 25220.50
+
+Results for NL6 at 2024-09-01 22:59:22
+Result 1: 25203
+Result 2: 25826
+Average result over 2 runs for NL6 is: 25514.50
+
+Results for NL6 at 2024-09-01 23:28:25
+Result 1: 26148
+Result 2: 26715
+Average result over 2 runs for NL6 is: 26431.50
+
+Results for NL6 at 2024-09-02 08:46:49
+back to frequent alternation ini schedule, previous less frequent
+Results for NL6 at 2024-09-02 09:03:45
+Result 1: 27795
+Result 2: 25144
+Average result over 2 runs for NL6 is: 26469.50
+

@@ -1,0 +1,6 @@
+Results for NL12 at 2024-09-01 23:28:35
+Results for NL12 at 2024-09-01 23:30:59
+Result 1: 140177
+Result 2: 137474
+Average result over 2 runs for NL12 is: 138825.50
+
