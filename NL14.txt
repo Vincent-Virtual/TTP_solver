@@ -2,3 +2,14 @@ Results for NL14 at 2024-09-01 23:31:11
 Result 1: 270910
 Results for NL14 at 2024-09-01 23:32:11
 Result 1: 252657
+add a 40s timeout for each run
+Results for NL14 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for NL14 is: 
+
+output 3 things
+Results for NL14 at 2024-09-03 11:29:04
+Result 1: result: 262761, iterations: 2000, time:8.4225332736969
+Result 2: result: 271938, iterations: 2000, time:10.825448036193848
+

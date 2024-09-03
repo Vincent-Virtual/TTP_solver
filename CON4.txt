@@ -57,3 +57,43 @@ Result 1: 17
 Result 2: 17
 Average result over 2 runs for CON4 is: 17.00
 
+less frequent alternation for initial schedule
+Results for CON4 at 2024-09-02 22:06:23
+Result 1: 17
+Result 2: 17
+Average result over 2 runs for CON4 is: 17.00
+
+add a 40s timeout for each run
+Results for CON4 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CON4 is: 
+
+output 3 things
+Results for CON4 at 2024-09-03 11:22:58
+Result 1: result: 17, iterations: 2000, time:0.1861259937286377
+Result 2: result: 17, iterations: 2000, time:0.17336511611938477
+10000iterations
+Results for CON4 at 2024-09-03 11:34:19
+Result 1: result: 17, iterations: 10000, time:0.8624730110168457
+Result 2: result: 17, iterations: 10000, time:0.9208519458770752
+Result 3: result: 17, iterations: 10000, time:0.8791501522064209
+
+Remove redundant things
+Results for CON4 at 2024-09-03 22:04:04
+Result 1: result: 17, iterations: 10000, time:0.8630640506744385
+Result 2: result: 17, iterations: 10000, time:1.0055890083312988
+Result 3: result: 17, iterations: 10000, time:1.04923415184021
+
+Revised the order of running instances
+Results for CON4 at 2024-09-03 22:55:48
+Result 1: result: 17, iterations: 10000, time:0.8583192825317383
+Result 2: result: 17, iterations: 10000, time:0.8799748420715332
+Result 3: result: 17, iterations: 10000, time:0.8569021224975586
+
+Revised the order of running instances
+Results for CON4 at 2024-09-03 22:57:08
+Result 1: result: 17, iterations: 10000, time:0.8714261054992676
+Result 2: result: 17, iterations: 10000, time:0.8745591640472412
+Result 3: result: 17, iterations: 10000, time:0.8554139137268066
+

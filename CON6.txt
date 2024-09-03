@@ -53,3 +53,41 @@ Result 1: 44
 Result 2: 44
 Average result over 2 runs for CON6 is: 44.00
 
+less frequent alternation for initial schedule
+Results for CON6 at 2024-09-02 22:06:24
+Result 1: 44
+Result 2: 44
+Average result over 2 runs for CON6 is: 44.00
+
+add a 40s timeout for each run
+Results for CON6 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CON6 is: 
+
+output 3 things
+Results for CON6 at 2024-09-03 11:22:58
+Result 1: result: 43, iterations: 2000, time:0.5056700706481934
+Result 2: result: 45, iterations: 2000, time:1.2522249221801758
+10000iterations
+Results for CON6 at 2024-09-03 11:34:22
+Result 1: result: 44, iterations: 10000, time:2.1066668033599854
+Result 2: result: 43, iterations: 10000, time:2.9349350929260254
+Result 3: result: 46, iterations: 10000, time:2.238309860229492
+
+Remove redundant things
+Results for CON6 at 2024-09-03 22:04:07
+Result 1: result: 46, iterations: 10000, time:3.1687638759613037
+Result 2: result: 44, iterations: 10000, time:2.382734775543213
+Result 3: result: 45, iterations: 10000, time:3.1436948776245117
+
+Revised the order of running instances
+Results for CON6 at 2024-09-03 22:55:51
+Result 1: result: 44, iterations: 10000, time:2.3925960063934326
+Result 2: result: 47, iterations: 10000, time:2.4545819759368896
+Revised the order of running instances
+Results for CON6 at 2024-09-03 22:57:11
+Result 1: result: 45, iterations: 10000, time:3.532808303833008
+Result 2: result: 45, iterations: 10000, time:2.2877607345581055
+Result 3: result: 45, iterations: 10000, time:3.0567150115966797
+

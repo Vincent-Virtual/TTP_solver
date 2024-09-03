@@ -5,3 +5,26 @@ Result 1: 272
 Result 2: 279
 Average result over 2 runs for CON14 is: 275.50
 
+add a 40s timeout for each run
+Results for CON14 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CON14 is: 
+
+output 3 things
+Results for CON14 at 2024-09-03 11:23:16
+Result 1: result: 274, iterations: 2000, time:8.274905920028687
+Result 2: result: 284, iterations: 2000, time:11.20707082748413
+
+10000iterations
+Results for CON14 at 2024-09-03 11:36:29
+Result 1: result: 272, iterations: 10000, time:50.31387400627136
+Result 2: result: 276, iterations: 10000, time:34.37217998504639
+Result 3: result: 271, iterations: 10000, time:62.68412899971008
+
+Remove redundant things
+Results for CON14 at 2024-09-03 22:06:28
+Result 1: result: 279, iterations: 10000, time:30.165832042694092
+Result 2: result: 275, iterations: 10000, time:31.698441982269287
+Result 3: result: 271, iterations: 10000, time:46.01027822494507
+

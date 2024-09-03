@@ -3,3 +3,29 @@ Result 1: 135
 Result 2: 132
 Average result over 2 runs for CON10 is: 133.50
 
+add a 40s timeout for each run
+Results for CON10 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CON10 is: 
+
+output 3 things
+Results for CON10 at 2024-09-03 11:23:03
+Result 1: result: 138, iterations: 2000, time:1.9445369243621826
+Result 2: result: 137, iterations: 2000, time:1.5902431011199951
+
+10000iterations
+Results for CON10 at 2024-09-03 11:34:50
+Result 1: result: 133, iterations: 10000, time:9.150857925415039
+Result 2: result: 135, iterations: 10000, time:12.783967018127441
+Result 3: result: 136, iterations: 10000, time:16.05811309814453
+
+Remove redundant things
+Results for CON10 at 2024-09-03 22:04:31
+Result 1: result: 133, iterations: 10000, time:12.696092128753662
+Result 2: result: 135, iterations: 10000, time:21.070401906967163
+Result 3: result: 134, iterations: 10000, time:17.226892948150635
+
+Revised the order of running instances
+Results for CON10 at 2024-09-03 22:58:37
+Result 1: result: 131, iterations: 10000, time:13.554987668991089

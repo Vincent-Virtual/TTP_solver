@@ -9,3 +9,26 @@ Result 1: 166
 Result 2: 168
 Average result over 2 runs for CIRC8 is: 167.00
 
+add a 40s timeout for each run
+Results for CIRC8 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CIRC8 is: 
+
+trial
+Results for CIRC8 at 2024-09-03 11:00:30
+Result 1: 172
+Result 2: 172
+Average result over 2 runs for CIRC8 is: 172.00
+
+output 3 things
+Results for CIRC8 at 2024-09-03 11:29:52
+Result 1: result: 166, iterations: 2000, time:1.2608067989349365
+Result 2: result: 156, iterations: 2000, time:1.1277570724487305
+
+Revised the order of running instances
+Results for CIRC8 at 2024-09-03 22:58:19
+Result 1: result: 162, iterations: 10000, time:6.296272039413452
+Result 2: result: 176, iterations: 10000, time:5.198554277420044
+Result 3: result: 160, iterations: 10000, time:6.675585031509399
+

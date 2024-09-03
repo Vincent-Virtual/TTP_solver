@@ -44,3 +44,48 @@ Result 1: 27795
 Result 2: 25144
 Average result over 2 runs for NL6 is: 26469.50
 
+less frequent alternation for initial schedule
+Results for NL6 at 2024-09-02 22:06:28
+less frequent alter
+Results for NL6 at 2024-09-02 22:07:54
+Result 1: 26283
+Result 2: 27124
+Average result over 2 runs for NL6 is: 26703.50
+
+add a 40s timeout for each run
+Results for NL6 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for NL6 is: 
+
+trial
+Results for NL6 at 2024-09-03 11:00:18
+Result 1: 26049
+Result 2: 27662
+Average result over 2 runs for NL6 is: 26855.50
+
+Output result, time and iterations in the txt files
+Results for NL6 at 2024-09-03 11:16:53
+Result 1: result: 25657, iterations: 0.6665327548980713, time:2000
+Result 2: result: 25564, iterations: 0.6080629825592041, time:2000
+output 3 things
+Results for NL6 at 2024-09-03 11:23:59
+Result 1: result: 25315, iterations: 2000, time:0.676893949508667
+Result 2: result: 24073, iterations: 2000, time:0.6222109794616699
+
+10000 iterations
+Results for NL6 at 2024-09-03 11:45:20
+Result 1: result: 26309, iterations: 10000, time:3.0286169052124023
+
+10000 iterations
+Results for NL6 at 2024-09-03 11:46:59
+Result 1: result: 25258, iterations: 10000, time:4.474850654602051
+Result 2: result: 26723, iterations: 10000, time:2.404932975769043
+Result 3: result: 26178, iterations: 10000, time:2.657945156097412
+
+Revised the order of running instances
+Results for NL6 at 2024-09-03 22:57:41
+Result 1: result: 26069, iterations: 10000, time:2.848158836364746
+Result 2: result: 27017, iterations: 10000, time:3.2444589138031006
+Result 3: result: 26557, iterations: 10000, time:2.1499199867248535
+

@@ -9,3 +9,20 @@ Result 1: 326
 Result 2: 334
 Average result over 2 runs for CIRC10 is: 330.00
 
+add a 40s timeout for each run
+Results for CIRC10 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CIRC10 is: 
+
+trial
+Results for CIRC10 at 2024-09-03 11:00:33
+Result 1: 318
+Result 2: 322
+Average result over 2 runs for CIRC10 is: 320.00
+
+output 3 things
+Results for CIRC10 at 2024-09-03 11:29:55
+Result 1: result: 330, iterations: 2000, time:2.426433801651001
+Result 2: result: 330, iterations: 2000, time:1.9383130073547363
+

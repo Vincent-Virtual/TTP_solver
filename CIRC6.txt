@@ -9,3 +9,26 @@ Result 1: 74
 Result 2: 74
 Average result over 2 runs for CIRC6 is: 74.00
 
+add a 40s timeout for each run
+Results for CIRC6 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CIRC6 is: 
+
+trial
+Results for CIRC6 at 2024-09-03 11:00:29
+Result 1: 72
+Result 2: 74
+Average result over 2 runs for CIRC6 is: 73.00
+
+output 3 things
+Results for CIRC6 at 2024-09-03 11:29:51
+Result 1: result: 74, iterations: 2000, time:0.5507180690765381
+Result 2: result: 70, iterations: 2000, time:0.6226999759674072
+
+Revised the order of running instances
+Results for CIRC6 at 2024-09-03 22:58:09
+Result 1: result: 72, iterations: 10000, time:2.4155709743499756
+Result 2: result: 70, iterations: 10000, time:2.9257028102874756
+Result 3: result: 72, iterations: 10000, time:4.127443313598633
+

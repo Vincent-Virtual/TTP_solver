@@ -3,3 +3,23 @@ Result 1: 370
 Result 2: 364
 Average result over 2 runs for CON16 is: 367.00
 
+add a 40s timeout for each run
+Results for CON16 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CON16 is: 
+
+output 3 things
+Results for CON16 at 2024-09-03 11:23:36
+Result 1: result: 365, iterations: 2000, time:11.71560788154602
+Result 2: result: 356, iterations: 2000, time:10.761966943740845
+
+10000iterations
+Results for CON16 at 2024-09-03 11:38:57
+Result 1: result: 361, iterations: 10000, time:74.57567000389099
+Result 2: result: 366, iterations: 10000, time:66.51225590705872
+
+Remove redundant things
+Results for CON16 at 2024-09-03 22:08:16
+Result 1: result: 357, iterations: 10000, time:60.774126052856445
+Result 2: result: 360, iterations: 10000, time:48.389607191085815

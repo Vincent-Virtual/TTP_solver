@@ -21,17 +21,14 @@ else:
 
 
 file_path = './Instances/{}.xml'.format(filename)
-
 distance_matrix = read_xml_and_create_distance_matrix(file_path)
 
 start_time = time.time()
 
-# print("Distance matrix:", distance_matrix)
+
 num_teams = len(distance_matrix)
 
 initial_schedule = generate_team_centric_schedule(num_teams)
-
-#A "distance_matrix" argument means this is "general SA" method
 initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
 print("initial schedule is")
@@ -42,7 +39,7 @@ print("initial distance is ", initial_distance)
 print()
 
 
-
+#A "distance_matrix" argument means this is "general SA" method
 # CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
 # CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
 
@@ -65,28 +62,32 @@ print()
 # input()
 
 
-max_iterations = 2000
+max_iterations = 10000
 neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
 ## aspiration
 k = 0
-i0 = -1
-j0 = -1
 
-dist = 10000000000000000000000
-for i in range(num_teams - 1):
-    for j in range(i+1, num_teams):
-        schedule1 = swap_round(copy.deepcopy(CSC_schedule), i, j)
-        if count_violations(schedule1) == 0:
-            dist1 = calculate_total_distance(schedule1, distance_matrix)
-            if dist1 < dist:
-                dist = dist1
-                i0 = i
-                j0 = j
+# i0 = -1
+# j0 = -1
+
+# dist = 10000000000000000000000
+# for i in range(num_teams - 1):
+#     for j in range(i+1, num_teams):
+#         schedule1 = swap_round(copy.deepcopy(CSC_schedule), i, j)
+#         if count_violations(schedule1) == 0:
+#             dist1 = calculate_total_distance(schedule1, distance_matrix)
+#             if dist1 < dist:
+#                 dist = dist1
+#                 i0 = i
+#                 j0 = j
 
 
-S0_schedule = swap_round(CSC_schedule, i0, j0)
-S0_distance = dist
+# S0_schedule = swap_round(CSC_schedule, i0, j0)
+# S0_distance = dist
+
+S0_schedule = CSC_schedule
+S0_distance = calculate_total_distance(S0_schedule, distance_matrix)
 
 S_star = S0_schedule
 best_distance = S0_distance
@@ -97,9 +98,11 @@ S_distance = S0_distance
 
 ## main loop
 for i in range(max_iterations):
-    print(i)
+    # print(i)
     S_prime = None
     
+    ## Locate one random schedule S_prime within the current neighbourhood
+    ## if can't find one within some checks, just use S_current
     j = 0
     while j < num_teams * 2:
     # while True:
@@ -123,8 +126,9 @@ for i in range(max_iterations):
 
         j += 1
     
-    print("while loop end")
-    if j == num_teams * 2:  ## the previous loop can't find a feasible random neighbour
+    # print("while loop end")
+    ## if the previous loop can't find a feasible random neighbour
+    if j == num_teams * 2:  
         S_prime = S_current
     
     S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods[k], distance_matrix, k)
@@ -149,22 +153,22 @@ output_schedule(S_star)
 print("violation is ", count_violations(S_star))
 print("output distance is ", best_distance)
 
-with open('schedule.json', 'w') as file:
-    file.write('[')  # Start of the array
-    for i, sublist in enumerate(S_star):
-        json_string = json.dumps(sublist)  # Convert sublist to JSON string
-        if i < len(S_star) - 1:
-            json_string += ','  # Add comma except for the last item
-        file.write(json_string + '\n')  # Write the json string and move to new line
-    file.write(']')  # End of the array
+# with open('schedule.json', 'w') as file:
+#     file.write('[')  # Start of the array
+#     for i, sublist in enumerate(S_star):
+#         json_string = json.dumps(sublist)  # Convert sublist to JSON string
+#         if i < len(S_star) - 1:
+#             json_string += ','  # Add comma except for the last item
+#         file.write(json_string + '\n')  # Write the json string and move to new line
+#     file.write(']')  # End of the array
 
 assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they should be equal"
 
 # Calculate and print the elapsed time
 elapsed_time = end_time - start_time
-print(f"Execution time: {elapsed_time} seconds")
+# print(f"Execution time: {elapsed_time} seconds")
 
-print(best_distance, elapsed_time)
+print("result: {}, iterations: {}, time:{}".format(best_distance, max_iterations, elapsed_time))
 
 
 

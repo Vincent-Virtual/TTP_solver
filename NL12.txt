@@ -4,3 +4,15 @@ Result 1: 140177
 Result 2: 137474
 Average result over 2 runs for NL12 is: 138825.50
 
+add a 40s timeout for each run
+Results for NL12 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for NL12 is: 
+
+
+output 3 things
+Results for NL12 at 2024-09-03 11:28:55
+Result 1: result: 142930, iterations: 2000, time:3.7318520545959473
+Result 2: result: 138285, iterations: 2000, time:4.896604776382446
+

@@ -3,3 +3,14 @@ Result 1: 369095
 Result 2: 367923
 Average result over 2 runs for NL16 is: 368509.00
 
+add a 40s timeout for each run
+Results for NL16 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for NL16 is: 
+
+output 3 things
+Results for NL16 at 2024-09-03 11:29:23
+Result 1: result: 367311, iterations: 2000, time:11.274726867675781
+Result 2: result: 371625, iterations: 2000, time:16.2690691947937
+

@@ -9,3 +9,43 @@ Result 1: 48984
 Result 2: violation is  2
 Average result over 2 runs for NL8 is: 
 
+less frequent alter
+Results for NL8 at 2024-09-02 22:07:55
+Result 1: 48639
+Result 2: 44374
+Average result over 2 runs for NL8 is: 46506.50
+
+add a 40s timeout for each run
+Results for NL8 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for NL8 is: 
+
+trial
+Results for NL8 at 2024-09-03 11:00:19
+Result 1: 47234
+Result 2: 46562
+Average result over 2 runs for NL8 is: 46898.00
+
+Output result, time and iterations in the txt files
+Results for NL8 at 2024-09-03 11:16:55
+Result 1: result: 46405, iterations: 1.2419588565826416, time:2000
+Result 2: result: 45239, iterations: 2.241847038269043, time:2000
+
+output 3 things
+Results for NL8 at 2024-09-03 11:24:00
+Result 1: result: 45339, iterations: 2000, time:1.6673858165740967
+Result 2: result: 46237, iterations: 2000, time:1.3062629699707031
+
+10000 iterations
+Results for NL8 at 2024-09-03 11:47:09
+Result 1: result: 47448, iterations: 10000, time:6.846571922302246
+Result 2: result: 44737, iterations: 10000, time:8.731992959976196
+Result 3: result: 48637, iterations: 10000, time:5.838427782058716
+
+Revised the order of running instances
+Results for NL8 at 2024-09-03 22:57:49
+Result 1: result: 44245, iterations: 10000, time:6.457533121109009
+Result 2: result: 45321, iterations: 10000, time:6.215088129043579
+Result 3: result: 46991, iterations: 10000, time:7.077217102050781
+

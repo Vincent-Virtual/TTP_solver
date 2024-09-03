@@ -3,3 +3,26 @@ Result 1: 200
 Result 2: 195
 Average result over 2 runs for CON12 is: 197.50
 
+add a 40s timeout for each run
+Results for CON12 at 2024-09-03 09:51:45
+Result 1: 
+Result 2: 
+Average result over 2 runs for CON12 is: 
+
+output 3 things
+Results for CON12 at 2024-09-03 11:23:06
+Result 1: result: 199, iterations: 2000, time:4.315299034118652
+Result 2: result: 197, iterations: 2000, time:5.355329751968384
+
+10000iterations
+Results for CON12 at 2024-09-03 11:35:28
+Result 1: result: 198, iterations: 10000, time:23.558071851730347
+Result 2: result: 200, iterations: 10000, time:18.144084215164185
+Result 3: result: 197, iterations: 10000, time:19.062175989151
+
+Remove redundant things
+Results for CON12 at 2024-09-03 22:05:22
+Result 1: result: 201, iterations: 10000, time:20.210138082504272
+Result 2: result: 200, iterations: 10000, time:24.882221937179565
+Result 3: result: 198, iterations: 10000, time:20.56191897392273
+
