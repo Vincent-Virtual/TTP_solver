@@ -3,7 +3,7 @@ from ini_sche import generate_team_centric_schedule
 from common import *
 from neighbourhood import *
 from initial_SA import initial_sa
-from SLS import stochastic_local_search
+from SLS import *
 
 import random
 import copy
@@ -62,7 +62,7 @@ print()
 # input()
 
 
-max_iterations = 10000
+max_iterations = 2000
 neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
 ## aspiration
@@ -105,25 +105,10 @@ for i in range(max_iterations):
     ## if can't find one within some checks, just use S_current
     j = 0
     while j < num_teams * 2:
-    # while True:
-        idx1, idx2 = random.sample(range(num_teams), 2)
-        schedule1 = None
-
-        if k == 3:
-            other_idx = random.randrange(num_teams)
-            schedule1 = partial_swap_round(copy.deepcopy(S_current), idx1, idx2, other_idx)
-
-        elif k == 4:
-            other_idx = random.randrange((num_teams-1) * 2)
-            schedule1 = partial_swap_team(copy.deepcopy(S_current), idx1, idx2, other_idx)
-        
-        else: # k = 0, 1, 2
-            schedule1 = neighbourhoods[k](copy.deepcopy(S_current), idx1, idx2)  # Create a deep copy
-
+        schedule1 = random_neighbour(copy.deepcopy(S_current), neighbourhoods, k)
         if count_violations(schedule1) == 0:
             S_prime = schedule1
             break
-
         j += 1
     
     # print("while loop end")
@@ -131,7 +116,7 @@ for i in range(max_iterations):
     if j == num_teams * 2:  
         S_prime = S_current
     
-    S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods[k], distance_matrix, k)
+    S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods, distance_matrix, k)
 
     if new_distance < S_distance:         ## f(S'') < f(S)
         S_current = S_2primes
@@ -140,16 +125,22 @@ for i in range(max_iterations):
         S_star = S_current
         best_distance = S_distance
 
+        print("change here")
+        print("k is ", k)
         print(i, S_distance)
 
     else:
         k = (k+1)%5 ## change to 5 for partial swap team
+        # print("do not change here")
+        print("k is ", k)
     
     # print(i, S_distance)
+    # print("violation is", count_violations(S_current))
+    # output_schedule(S_current)
 
 end_time = time.time()
 
-output_schedule(S_star)
+# output_schedule(S_star)
 print("violation is ", count_violations(S_star))
 print("output distance is ", best_distance)
 

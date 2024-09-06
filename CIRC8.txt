@@ -32,3 +32,9 @@ Result 1: result: 162, iterations: 10000, time:6.296272039413452
 Result 2: result: 176, iterations: 10000, time:5.198554277420044
 Result 3: result: 160, iterations: 10000, time:6.675585031509399
 
+About to modify SLS
+Results for CIRC8 at 2024-09-04 12:13:01
+Result 1: result: 172, iterations: 10000, time:9.009896039962769
+Result 2: result: 172, iterations: 10000, time:8.51509714126587
+Result 3: result: 160, iterations: 10000, time:12.044550895690918
+

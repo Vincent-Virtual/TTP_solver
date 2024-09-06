@@ -49,3 +49,9 @@ Result 1: result: 44245, iterations: 10000, time:6.457533121109009
 Result 2: result: 45321, iterations: 10000, time:6.215088129043579
 Result 3: result: 46991, iterations: 10000, time:7.077217102050781
 
+About to modify SLS
+Results for NL8 at 2024-09-04 12:12:32
+Result 1: result: 47019, iterations: 10000, time:7.271423816680908
+Result 2: result: 45275, iterations: 10000, time:5.9620521068573
+Result 3: result: 46966, iterations: 10000, time:7.403818130493164
+

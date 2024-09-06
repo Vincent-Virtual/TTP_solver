@@ -81,3 +81,9 @@ Result 1: result: 8276, iterations: 10000, time:0.8861908912658691
 Result 2: result: 8276, iterations: 10000, time:0.8902769088745117
 Result 3: result: 8276, iterations: 10000, time:0.9312059879302979
 
+About to modify SLS
+Results for NL4 at 2024-09-04 12:12:20
+Result 1: result: 8276, iterations: 10000, time:0.9820151329040527
+Result 2: result: 8276, iterations: 10000, time:0.9565181732177734
+Result 3: result: 8276, iterations: 10000, time:0.9379398822784424
+

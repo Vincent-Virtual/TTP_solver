@@ -28,3 +28,9 @@ Result 1: result: 279, iterations: 10000, time:30.165832042694092
 Result 2: result: 275, iterations: 10000, time:31.698441982269287
 Result 3: result: 271, iterations: 10000, time:46.01027822494507
 
+About to modify SLS
+Results for CON14 at 2024-09-04 12:15:43
+Result 1: result: 272, iterations: 10000, time:37.57209801673889
+Result 2: result: 278, iterations: 10000, time:40.53712177276611
+Result 3: result: 275, iterations: 10000, time:53.41907501220703
+

@@ -49,3 +49,9 @@ Result 1: result: 83, iterations: 10000, time:5.150339841842651
 Result 2: result: 84, iterations: 10000, time:7.606487035751343
 Result 3: result: 84, iterations: 10000, time:5.0712668895721436
 
+About to modify SLS
+Results for CON8 at 2024-09-04 12:12:02
+Result 1: result: 83, iterations: 10000, time:6.408086061477661
+Result 2: result: 83, iterations: 10000, time:5.96814489364624
+Result 3: result: 85, iterations: 10000, time:5.619647979736328
+

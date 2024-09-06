@@ -89,3 +89,9 @@ Result 1: result: 26069, iterations: 10000, time:2.848158836364746
 Result 2: result: 27017, iterations: 10000, time:3.2444589138031006
 Result 3: result: 26557, iterations: 10000, time:2.1499199867248535
 
+About to modify SLS
+Results for NL6 at 2024-09-04 12:12:23
+Result 1: result: 25662, iterations: 10000, time:2.6166398525238037
+Result 2: result: 25805, iterations: 10000, time:3.074697256088257
+Result 3: result: 26395, iterations: 10000, time:3.0381407737731934
+

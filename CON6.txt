@@ -91,3 +91,9 @@ Result 1: result: 45, iterations: 10000, time:3.532808303833008
 Result 2: result: 45, iterations: 10000, time:2.2877607345581055
 Result 3: result: 45, iterations: 10000, time:3.0567150115966797
 
+About to modify SLS
+Results for CON6 at 2024-09-04 12:11:54
+Result 1: result: 46, iterations: 10000, time:2.5113918781280518
+Result 2: result: 46, iterations: 10000, time:3.0867791175842285
+Result 3: result: 46, iterations: 10000, time:2.8232407569885254
+
