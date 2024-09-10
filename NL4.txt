@@ -87,3 +87,21 @@ Result 1: result: 8276, iterations: 10000, time:0.9820151329040527
 Result 2: result: 8276, iterations: 10000, time:0.9565181732177734
 Result 3: result: 8276, iterations: 10000, time:0.9379398822784424
 
+proper SLS, 2000 outer loop iterations
+Results for NL4 at 2024-09-07 20:10:33
+Result 1: result: 8276, iterations: 2000, time:2.2029271125793457
+Result 2: result: 8276, iterations: 2000, time:2.3947558403015137
+Result 3: result: 8276, iterations: 2000, time:2.4544358253479004
+
+break the symmetries of neighbours
+Results for NL4 at 2024-09-10 09:59:37
+Result 1: result: 8276, iterations: 2000, time:2.2608771324157715
+Result 2: result: 8276, iterations: 2000, time:2.298596143722534
+Result 3: result: 8276, iterations: 2000, time:2.3305959701538086
+
+120 inner loop iters for SLS
+Results for NL4 at 2024-09-10 10:47:17
+Result 1: result: 8276, iterations: 2000, time:8.367961168289185
+Result 2: result: 8276, iterations: 2000, time:8.198187828063965
+Result 3: result: 8276, iterations: 2000, time:8.119086027145386
+

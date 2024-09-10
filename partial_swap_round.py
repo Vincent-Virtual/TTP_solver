@@ -39,6 +39,8 @@ def partial_swap_round(schedule, round1_idx, round2_idx, teamA_idx):
                 # input()
                 # print(r, checking_opponent)
                 break
+
+    smallest_idx = min(to_swap_teams)
     # print("ps round")
     ## The while loop will always break if DRR schedule as input
     ## perform the swaps here

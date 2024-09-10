@@ -38,3 +38,21 @@ Result 1: result: 172, iterations: 10000, time:9.009896039962769
 Result 2: result: 172, iterations: 10000, time:8.51509714126587
 Result 3: result: 160, iterations: 10000, time:12.044550895690918
 
+proper SLS, 2000 outer loop iterations
+Results for CIRC8 at 2024-09-07 20:11:31
+Result 1: result: 178, iterations: 2000, time:7.088713884353638
+Result 2: result: 166, iterations: 2000, time:7.07267689704895
+Result 3: result: 162, iterations: 2000, time:7.088507890701294
+
+break the symmetries of neighbours
+Results for CIRC8 at 2024-09-10 10:00:34
+Result 1: result: 158, iterations: 2000, time:7.595757722854614
+Result 2: result: 166, iterations: 2000, time:7.4938719272613525
+Result 3: result: 160, iterations: 2000, time:7.167802095413208
+
+120 inner loop iters for SLS
+Results for CIRC8 at 2024-09-10 10:50:40
+Result 1: result: 156, iterations: 2000, time:25.59340214729309
+Result 2: result: 162, iterations: 2000, time:25.48036479949951
+Result 3: result: 164, iterations: 2000, time:27.148645162582397
+

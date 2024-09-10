@@ -4,7 +4,10 @@ from common import cost_with_violations, count_violations, calculate_total_dista
 
 def random_neighbour(schedule, neighbourhoods: list, k):
     num_teams = len(schedule)
-    idx1, idx2 = random.sample(range(num_teams), 2)
+
+    # idx1 < idx2 to break symmetry
+    idx1, idx2 = sorted(random.sample(range(num_teams), 2))
+    # idx1, idx2 = random.sample(range(num_teams), 2)
 
     if k <= 2:
         return neighbourhoods[k](schedule, idx1, idx2)
@@ -17,7 +20,7 @@ def random_neighbour(schedule, neighbourhoods: list, k):
         other_idx = random.randrange((num_teams-1) * 2)
         return neighbourhoods[k](schedule, idx1, idx2, other_idx)
 
-def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k, max_iterations=10):
+def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k, max_iterations=120):
     
     # Initialize the best schedule and cost
     best_schedule = copy.deepcopy(schedule)

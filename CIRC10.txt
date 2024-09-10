@@ -26,3 +26,15 @@ Results for CIRC10 at 2024-09-03 11:29:55
 Result 1: result: 330, iterations: 2000, time:2.426433801651001
 Result 2: result: 330, iterations: 2000, time:1.9383130073547363
 
+proper SLS, 2000 outer loop iterations
+Results for CIRC10 at 2024-09-07 20:19:41
+Result 1: result: 302, iterations: 2000, time:11.981719970703125
+Result 2: result: 312, iterations: 2000, time:11.018372058868408
+Result 3: result: 320, iterations: 2000, time:11.191051959991455
+
+break the symmetries of neighbours
+Results for CIRC10 at 2024-09-10 10:08:47
+Result 1: result: 328, iterations: 2000, time:10.975886821746826
+Result 2: result: 310, iterations: 2000, time:10.580150127410889
+Result 3: result: 316, iterations: 2000, time:10.695959091186523
+

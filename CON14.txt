@@ -34,3 +34,15 @@ Result 1: result: 272, iterations: 10000, time:37.57209801673889
 Result 2: result: 278, iterations: 10000, time:40.53712177276611
 Result 3: result: 275, iterations: 10000, time:53.41907501220703
 
+proper SLS, 2000 outer loop iterations
+Results for CON14 at 2024-09-07 20:13:15
+Result 1: result: 273, iterations: 2000, time:22.23323082923889
+Result 2: result: 272, iterations: 2000, time:22.733123064041138
+Result 3: result: 278, iterations: 2000, time:21.98227620124817
+
+break the symmetries of neighbours
+Results for CON14 at 2024-09-10 10:02:17
+Result 1: result: 275, iterations: 2000, time:21.69828486442566
+Result 2: result: 275, iterations: 2000, time:21.533473014831543
+Result 3: result: 272, iterations: 2000, time:21.112385034561157
+

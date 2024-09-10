@@ -48,9 +48,9 @@ CSC_schedule = initial_schedule
 CSC_distance = initial_distance
 violations = count_violations(CSC_schedule)
 
-print("after SA")
-output_schedule(CSC_schedule)
-print("violation is ", violations)
+# print("after SA")
+# output_schedule(CSC_schedule)
+# print("violation is ", violations)
 
 if violations != 0:
     sys.exit(1)
@@ -125,14 +125,14 @@ for i in range(max_iterations):
         S_star = S_current
         best_distance = S_distance
 
-        print("change here")
-        print("k is ", k)
-        print(i, S_distance)
+        # print("change here")
+        # print("k is ", k)
+        # print(i, S_distance)
 
     else:
         k = (k+1)%5 ## change to 5 for partial swap team
         # print("do not change here")
-        print("k is ", k)
+        # print("k is ", k)
     
     # print(i, S_distance)
     # print("violation is", count_violations(S_current))
@@ -141,7 +141,7 @@ for i in range(max_iterations):
 end_time = time.time()
 
 # output_schedule(S_star)
-print("violation is ", count_violations(S_star))
+# print("violation is ", count_violations(S_star))
 print("output distance is ", best_distance)
 
 # with open('schedule.json', 'w') as file:

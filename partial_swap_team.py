@@ -42,7 +42,9 @@ def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
                 # input()
                 # print(r, checking_opponent)
                 break
-            
+    
+    smallest_idx = min(visited_rounds)
+
     # print("ps team")
     for r in visited_rounds:
         # Swap the games except the ones they play against each other

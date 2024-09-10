@@ -37,3 +37,15 @@ Result 2: result: 76159, iterations: 2000, time:2.7168757915496826
 
 10000 iterations
 Results for NL10 at 2024-09-03 11:47:31
+proper SLS, 2000 outer loop iterations
+Results for NL10 at 2024-09-07 20:15:46
+Result 1: result: 73266, iterations: 2000, time:10.771265983581543
+Result 2: result: 72651, iterations: 2000, time:10.698276042938232
+Result 3: result: 71951, iterations: 2000, time:11.038095235824585
+
+break the symmetries of neighbours
+Results for NL10 at 2024-09-10 10:04:51
+Result 1: result: 72566, iterations: 2000, time:10.974185943603516
+Result 2: result: 74142, iterations: 2000, time:10.565885066986084
+Result 3: result: 73661, iterations: 2000, time:10.553889989852905
+

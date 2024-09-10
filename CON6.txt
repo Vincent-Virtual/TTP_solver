@@ -97,3 +97,21 @@ Result 1: result: 46, iterations: 10000, time:2.5113918781280518
 Result 2: result: 46, iterations: 10000, time:3.0867791175842285
 Result 3: result: 46, iterations: 10000, time:2.8232407569885254
 
+proper SLS, 2000 outer loop iterations
+Results for CON6 at 2024-09-07 20:09:58
+Result 1: result: 44, iterations: 2000, time:4.414545059204102
+Result 2: result: 46, iterations: 2000, time:4.428477048873901
+Result 3: result: 43, iterations: 2000, time:4.220985174179077
+
+break the symmetries of neighbours
+Results for CON6 at 2024-09-10 09:59:01
+Result 1: result: 44, iterations: 2000, time:4.867587089538574
+Result 2: result: 43, iterations: 2000, time:4.768746852874756
+Result 3: result: 44, iterations: 2000, time:4.3359150886535645
+
+120 inner loop iters for SLS
+Results for CON6 at 2024-09-10 10:45:12
+Result 1: result: 44, iterations: 2000, time:16.21864604949951
+Result 2: result: 45, iterations: 2000, time:15.62888503074646
+Result 3: result: 43, iterations: 2000, time:15.681596040725708
+

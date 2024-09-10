@@ -95,3 +95,21 @@ Result 1: result: 25662, iterations: 10000, time:2.6166398525238037
 Result 2: result: 25805, iterations: 10000, time:3.074697256088257
 Result 3: result: 26395, iterations: 10000, time:3.0381407737731934
 
+proper SLS, 2000 outer loop iterations
+Results for NL6 at 2024-09-07 20:10:40
+Result 1: result: 24935, iterations: 2000, time:4.442996978759766
+Result 2: result: 25690, iterations: 2000, time:4.500629901885986
+Result 3: result: 24498, iterations: 2000, time:4.422565221786499
+
+break the symmetries of neighbours
+Results for NL6 at 2024-09-10 09:59:44
+Result 1: result: 25933, iterations: 2000, time:4.3033270835876465
+Result 2: result: 25690, iterations: 2000, time:4.728062868118286
+Result 3: result: 24779, iterations: 2000, time:4.538002014160156
+
+120 inner loop iters for SLS
+Results for NL6 at 2024-09-10 10:47:42
+Result 1: result: 24480, iterations: 2000, time:15.704490900039673
+Result 2: result: 25690, iterations: 2000, time:16.79124402999878
+Result 3: result: 24947, iterations: 2000, time:16.654341220855713
+

@@ -55,3 +55,21 @@ Result 1: result: 83, iterations: 10000, time:6.408086061477661
 Result 2: result: 83, iterations: 10000, time:5.96814489364624
 Result 3: result: 85, iterations: 10000, time:5.619647979736328
 
+proper SLS, 2000 outer loop iterations
+Results for CON8 at 2024-09-07 20:10:11
+Result 1: result: 82, iterations: 2000, time:7.4477198123931885
+Result 2: result: 82, iterations: 2000, time:7.067229986190796
+Result 3: result: 85, iterations: 2000, time:7.258238792419434
+
+break the symmetries of neighbours
+Results for CON8 at 2024-09-10 09:59:15
+Result 1: result: 83, iterations: 2000, time:7.549070119857788
+Result 2: result: 81, iterations: 2000, time:6.856959819793701
+Result 3: result: 81, iterations: 2000, time:7.134927988052368
+
+120 inner loop iters for SLS
+Results for CON8 at 2024-09-10 10:45:59
+Result 1: result: 82, iterations: 2000, time:25.707370281219482
+Result 2: result: 84, iterations: 2000, time:26.547423839569092
+Result 3: result: 81, iterations: 2000, time:25.56857919692993
+

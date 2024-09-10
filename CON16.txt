@@ -26,3 +26,15 @@ Result 2: result: 360, iterations: 10000, time:48.389607191085815
 
 About to modify SLS
 Results for CON16 at 2024-09-04 12:17:55
+proper SLS, 2000 outer loop iterations
+Results for CON16 at 2024-09-07 20:14:22
+Result 1: result: 358, iterations: 2000, time:27.43386435508728
+Result 2: result: 362, iterations: 2000, time:27.08123803138733
+Result 3: result: 362, iterations: 2000, time:29.853450775146484
+
+break the symmetries of neighbours
+Results for CON16 at 2024-09-10 10:03:22
+Result 1: result: 359, iterations: 2000, time:29.7725088596344
+Result 2: result: 365, iterations: 2000, time:28.705661058425903
+Result 3: result: 366, iterations: 2000, time:30.807055711746216
+

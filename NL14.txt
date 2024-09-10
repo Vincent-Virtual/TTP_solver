@@ -13,3 +13,15 @@ Results for NL14 at 2024-09-03 11:29:04
 Result 1: result: 262761, iterations: 2000, time:8.4225332736969
 Result 2: result: 271938, iterations: 2000, time:10.825448036193848
 
+proper SLS, 2000 outer loop iterations
+Results for NL14 at 2024-09-07 20:17:05
+Result 1: result: 260974, iterations: 2000, time:21.513020992279053
+Result 2: result: 255150, iterations: 2000, time:22.146167039871216
+Result 3: result: 257805, iterations: 2000, time:21.897740125656128
+
+break the symmetries of neighbours
+Results for NL14 at 2024-09-10 10:06:13
+Result 1: result: 252307, iterations: 2000, time:21.793885946273804
+Result 2: result: 256209, iterations: 2000, time:23.157313108444214
+Result 3: result: 254307, iterations: 2000, time:20.732465982437134
+
