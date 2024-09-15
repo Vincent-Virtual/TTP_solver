@@ -3,12 +3,18 @@ from gurobipy import GRB
 from common import read_xml_and_create_distance_matrix
 
 import json
+import sys
 
-# with open('schedule.json', 'r') as file:
-#     schedule = json.load(file)
+filename = ""
+if len(sys.argv) > 1:
+    filename = sys.argv[1]  # sys.argv[1] is the first command-line argument
+
+else:
+    print("No arguments provided.")
+    sys.exit(1)
 
 
-file_path = './Instances/CON8.xml'
+file_path = './Instances/{}.xml'.format(filename)
 dij = read_xml_and_create_distance_matrix(file_path)
 
 n = len(dij)  # Example number of teams
@@ -74,16 +80,16 @@ m.addConstrs((gp.quicksum(xijk[i, j, k] for k in range(2*n-2)) == 1 for i in ran
 
 
 # Constraint (5): Ensure home stands and road trips have a length of at most 3
-m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for j in range(n)) <= 3 
-                  for i in range(n) for k in range(2*n - 2 - 3)), name="C5")
+# m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for j in range(n)) <= 3 
+#                   for i in range(n) for k in range(2*n - 2 - 3)), name="C5")
 
-# Constraint (6): Ensure home stands and road trips have a length of at most 3
-m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for i in range(n)) <= 3 
-                  for j in range(n) for k in range(2*n - 2 - 3)), name="C6")
+# # Constraint (6): Ensure home stands and road trips have a length of at most 3
+# m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for i in range(n)) <= 3 
+#                   for j in range(n) for k in range(2*n - 2 - 3)), name="C6")
 
 
 # no-repeater constraint
-m.addConstrs((xijk[i, j, k] + xijk[j, i, k] + xijk[i, j, k+1] + xijk[j, i, k+1]  <= 1 for i in range(n) for j in range(n) for k in range(2*n - 3)), name="C7")
+# m.addConstrs((xijk[i, j, k] + xijk[j, i, k] + xijk[i, j, k+1] + xijk[j, i, k+1]  <= 1 for i in range(n) for j in range(n) for k in range(2*n - 3)), name="C7")
 
 # driving behavior of the teams
 m.addConstrs((zijk[j, j, k] == gp.quicksum(xijk[i, j, k] for i in range(n)) for j in range(n) for k in range(2*n-2)), name="C8")

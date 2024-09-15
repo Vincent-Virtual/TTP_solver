@@ -5,41 +5,6 @@ from ini_sche import generate_team_centric_schedule
 from common import *
 from neighbourhood import *
 
-# SA for VNS
-# def initial_sa(SC_schedule, distance_matrix = None, initial_temp = 10000, max_iterations = 3000, cooling_rate = 0.9):
-#     num_rounds = len(SC_schedule)
-
-#     S0_schedule = SC_schedule
-#     temp = initial_temp
-#     S_current = S0_schedule
-#     # S_star = S0_schedule
-
-#     count = 0
-
-#     # while True:
-#     for iter in range(max_iterations):
-#         if count_violations(S_current) != 0:
-#             count += 1
-#         #     S′ ← choose random configuration ∈ N(S)
-#             round1_idx, round2_idx = random.sample(range(num_rounds), 2)
-#             S_prime = swap_round(copy.deepcopy(S_current), round1_idx, round2_idx)
-#             r = random.random() # random number btw 0 and 1
-#             diff = count_violations(S_prime) - count_violations(S_current)
-#             # print(count_violations(S_prime), count_violations(S_current))
-                
-#             if r < math.exp( -diff / temp):
-#                 # print("yes")
-#                 # print(count, count_violations(S_prime), temp)
-                
-#                 S_current = S_prime ##the new starting solution is modified)
-#                 temp = temp * cooling_rate
-            
-            
-#         else:
-#             break
-            
-#     return S_current
-
 
 # General SA
 def initial_sa(initial_schedule, distance_matrix, initial_temp = 1000):

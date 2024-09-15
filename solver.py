@@ -65,26 +65,10 @@ print()
 max_iterations = 2000
 neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
+# tabu
+
 ## aspiration
 k = 0
-
-# i0 = -1
-# j0 = -1
-
-# dist = 10000000000000000000000
-# for i in range(num_teams - 1):
-#     for j in range(i+1, num_teams):
-#         schedule1 = swap_round(copy.deepcopy(CSC_schedule), i, j)
-#         if count_violations(schedule1) == 0:
-#             dist1 = calculate_total_distance(schedule1, distance_matrix)
-#             if dist1 < dist:
-#                 dist = dist1
-#                 i0 = i
-#                 j0 = j
-
-
-# S0_schedule = swap_round(CSC_schedule, i0, j0)
-# S0_distance = dist
 
 S0_schedule = CSC_schedule
 S0_distance = calculate_total_distance(S0_schedule, distance_matrix)
@@ -98,9 +82,9 @@ S_distance = S0_distance
 
 ## main loop
 for i in range(max_iterations):
-    # print(i)
+    # print("k is ", k)
+
     S_prime = None
-    
     ## Locate one random schedule S_prime within the current neighbourhood
     ## if can't find one within some checks, just use S_current
     j = 0
@@ -125,13 +109,13 @@ for i in range(max_iterations):
         S_star = S_current
         best_distance = S_distance
 
-        # print("change here")
+        # print("stay here")
         # print("k is ", k)
-        # print(i, S_distance)
+        print(i, S_distance)
 
     else:
         k = (k+1)%5 ## change to 5 for partial swap team
-        # print("do not change here")
+        # print("change here")
         # print("k is ", k)
     
     # print(i, S_distance)
