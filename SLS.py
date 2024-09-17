@@ -5,14 +5,21 @@ from common import cost_with_violations, count_violations, calculate_total_dista
 def random_neighbour(schedule, neighbourhoods: list, k):
     num_teams = len(schedule)
 
-    # idx1 < idx2 to break symmetry
-    idx1, idx2 = sorted(random.sample(range(num_teams), 2))
-    # idx1, idx2 = random.sample(range(num_teams), 2)
+    if k == 1 or k == 2 or k == 4:
+        # idx1 < idx2 to break symmetry
+        idx1, idx2 = sorted(random.sample(range(num_teams), 2))
 
-    # if k == 1 or k == 2:
-    #     return schedule
+        if k != 4:
+            return neighbourhoods[k](schedule, idx1, idx2)
+        
+        if k == 4:
+            other_idx = random.randrange((num_teams-1) * 2)
+            return neighbourhoods[k](schedule, idx1, idx2, other_idx)
 
-    if k <= 2:
+    ## k == 0 or k == 3     idx1, idx2 can be all round indices
+    idx1, idx2 = sorted(random.sample(range((num_teams - 1) * 2), 2))
+
+    if k == 0:
         # print((idx1, idx2))
         return neighbourhoods[k](schedule, idx1, idx2)
     
@@ -21,10 +28,7 @@ def random_neighbour(schedule, neighbourhoods: list, k):
         # print((idx1, idx2, other_idx))
         return neighbourhoods[k](schedule, idx1, idx2, other_idx)
     
-    if k == 4:
-        other_idx = random.randrange((num_teams-1) * 2)
-        # print((idx1, idx2, other_idx))
-        return neighbourhoods[k](schedule, idx1, idx2, other_idx)
+    
 
 # def random_neighbour1(schedule, neighbourhoods: list, k):
 #     num_teams = len(schedule)
@@ -101,7 +105,7 @@ def random_neighbour1(schedule, neighbourhoods: list, k, tabu, current_iteration
         return neighbourhoods[k](schedule, idx1, idx2, other_idx), (idx1, idx2, other_idx)
 
 
-def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k, tabu_tenure = 5, max_iterations=30):
+def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k, tabu_tenure = 8, max_iterations=30):
     # print("k is ", k)
 
     # Initialize tabu list with zeros

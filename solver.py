@@ -1,5 +1,5 @@
 from ini_sche import generate_team_centric_schedule
-
+from parse_solution import parse_schedule_to_array
 from common import *
 from neighbourhood import *
 from initial_SA import initial_sa
@@ -28,6 +28,17 @@ start_time = time.time()
 
 num_teams = len(distance_matrix)
 
+schedule_str = """
+Team  1's Schedule: [ -3  -2   6   2   7  -5   8   5   4  -8  -4   3  -7  -6]
+Team  2's Schedule: [  8   1  -5  -1  -6   7   4  -3  -8  -4   6   5   3  -7]
+Team  3's Schedule: [  1   7   4  -6  -8   6   5   2  -7  -5   8  -1  -2  -4]
+Team  4's Schedule: [  7   6  -3  -8  -5   8  -2  -7  -1   2   1  -6   5   3]
+Team  5's Schedule: [  6   8   2  -7   4   1  -3  -1  -6   3   7  -2  -4  -8]
+Team  6's Schedule: [ -5  -4  -1   3   2  -3  -7  -8   5   7  -2   4   8   1]
+Team  7's Schedule: [ -4  -3  -8   5  -1  -2   6   4   3  -6  -5   8   1   2]
+Team  8's Schedule: [ -2  -5   7   4   3  -4  -1   6   2   1  -3  -7  -6   5]"""
+
+# initial_schedule = parse_schedule_to_array(schedule_str)
 initial_schedule = generate_team_centric_schedule(num_teams)
 initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
@@ -124,7 +135,7 @@ for i in range(max_iterations):
 
 end_time = time.time()
 
-# output_schedule(S_star)
+output_schedule(S_star)
 # print("violation is ", count_violations(S_star))
 print("output distance is ", best_distance)
 

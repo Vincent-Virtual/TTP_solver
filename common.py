@@ -35,21 +35,29 @@ def calculate_total_distance(schedule, distance_matrix):
 
     for team_idx, team_schedule in enumerate(schedule):
         current_location = team_idx  # Teams start at their home location
+        team_travel = 0
+
         for game in team_schedule:
             if game < 0:  # Away game
                 opponent_idx = abs(game) - 1
                 # Add distance from the current location to the away game location
-                total_distance += distance_matrix[current_location][opponent_idx]
+                # total_distance += distance_matrix[current_location][opponent_idx]
+                team_travel += distance_matrix[current_location][opponent_idx]
                 current_location = opponent_idx  # Update current location to this away game location
             else:  # Home game
                 if current_location != team_idx:  # If not already at home, add distance to return home
-                    total_distance += distance_matrix[current_location][team_idx]
+                    # total_distance += distance_matrix[current_location][team_idx]
+                    team_travel += distance_matrix[current_location][team_idx]
                     current_location = team_idx  # Update location back to home
 
         # Ensure return to home after the last game if it was away
         if current_location != team_idx:
-            total_distance += distance_matrix[current_location][team_idx]
-            
+            # total_distance += distance_matrix[current_location][team_idx]
+            team_travel += distance_matrix[current_location][team_idx]
+        
+        # print(team_travel)
+        total_distance += team_travel
+
     return total_distance
 
 
