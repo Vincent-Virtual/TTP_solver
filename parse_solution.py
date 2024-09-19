@@ -73,12 +73,13 @@ def parse_schedule_to_array(schedule_str: str):
         # print(type(schedule_list[0]))
         schedule.append(schedule_list)
     
-    return schedule
-    # arr = [[1 for _ in range((num_teams-1)*2)] for _ in range(num_teams)]
+    # return schedule
+    arr = [[1 for _ in range((num_teams-1)*2)] for _ in range(num_teams)]
     # print(type(arr[0][0]))
     # print(arr)
     # print(schedules)
-    # print(calculate_total_distance(schedule, arr))
+    print(calculate_total_distance(schedule, arr))
+    return schedule
 
 
 
@@ -95,4 +96,47 @@ Team  8's Schedule: [ 10   4   7 -10  -7  -4   6   9   3  -6  -9  -3   2  -5  -1
 Team  9's Schedule: [  2   6  -3  -6  -2   5  -1  -8  -4   3   8  10  -5 -10  -7   1   4   7]
 Team 10's Schedule: [ -8  -1   4   8   1  -2   7   6   2  -4  -7  -9   3   9   5  -6  -3  -5]"""
 
-schedule = parse_schedule_to_array(schedule_str)
+
+
+# schedule_str = """
+# Team  1's Schedule: [ -5  -4  -2   4   7   2  -7 -10   9   5  10  -9   8   6   3  -8  -3  -6]
+# Team  2's Schedule: [ -6  -8   1   5   4  -1  -4   9   8   6  -9  -5   7   3  10  -7 -10  -3]
+# Team  3's Schedule: [ -7  -6   9   6   5  -9  -5   8   7  10  -8 -10   4  -2  -1  -4   1   2]
+# Team  4's Schedule: [  9   1 -10  -1  -2  10   2  -5  -6  -9   5   6  -3  -8  -7   3   7   8]
+# Team  5's Schedule: [  1  10   7  -2  -3  -7   3   4 -10  -1  -4   2  -6  -9  -8   6   8   9]
+# Team  6's Schedule: [  2   3   8  -3 -10  -8  10   7   4  -2  -7  -4   5  -1  -9  -5   9   1]
+# Team  7's Schedule: [  3   9  -5  -9  -1   5   1  -6  -3  -8   6   8  -2  10   4   2  -4 -10]
+# Team  8's Schedule: [ 10   2  -6 -10  -9   6   9  -3  -2   7   3  -7  -1   4   5   1  -5  -4]
+# Team  9's Schedule: [ -4  -7  -3   7   8   3  -8  -2  -1   4   2   1 -10   5   6  10  -6  -5]
+# Team 10's Schedule: [ -8  -5   4   8   6  -4  -6   1   5  -3  -1   3   9  -7  -2  -9   2   7]
+# """
+
+
+
+def swap_schedule_rounds(schedule):
+    num_teams = len(schedule)
+    num_rounds = len(schedule[0])
+    
+    # Calculate the midpoint to divide the schedule into two halves
+    mid = num_rounds // 2
+    
+    # Swap the first half of the rounds with the last half
+    new_schedule = []
+    
+    for team in schedule:
+        # Swap the two halves of the rounds
+        new_team_schedule = team[mid:] + team[:mid]
+        new_schedule.append(new_team_schedule)
+
+    arr = [[1 for _ in range((num_teams-1)*2)] for _ in range(num_teams)]
+    # print(type(arr[0][0]))
+    # print(arr)
+    # print(schedules)
+    output_schedule(new_schedule)
+    print(calculate_total_distance(new_schedule, arr))
+    
+    return new_schedule
+
+# schedule = parse_schedule_to_array(schedule_str)
+
+# schedule1 = swap_schedule_rounds(schedule)

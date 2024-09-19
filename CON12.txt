@@ -44,3 +44,23 @@ Result 1: result: 193, iterations: 2000, time:16.215018033981323
 Result 2: result: 199, iterations: 2000, time:16.2699191570282
 Result 3: result: 197, iterations: 2000, time:16.23644995689392
 
+fix random idx range issues, using SLS without tabu
+Results for CON12 at 2024-09-17 10:51:04
+Result 1: result: 191, iterations: 2000, time:15.111510992050171
+Result 2: result: 191, iterations: 2000, time:15.439870119094849
+Result 3: result: 195, iterations: 2000, time:15.486554861068726
+
+Team  1's Schedule: [  3   4  -7  -3  -2   7  12 -10  -5 -12   8   5   2  -8  -4   9  -6  -9 -11   6  11  10]
+Team  2's Schedule: [ 12   3  -6 -12   1   6 -11  -9  -4  11   7   4  -1  -7  -3   8  -5  -8 -10   5  10   9]
+Team  3's Schedule: [ -1  -2  -5   1  11   5 -10  -8 -12  10   6  12 -11  -6   2   7  -4  -7  -9   4   9   8]
+Team  4's Schedule: [-11  -1 -12  11  10  12  -9  -7   2   9   5  -2 -10  -5   1   6   3  -6  -8  -3   8   7]
+Team  5's Schedule: [-10 -11   3  10   9  -3  -8  -6   1   8  -4  -1  -9   4  11 -12   2  12  -7  -2   7   6]
+Team  6's Schedule: [ -9 -10   2   9   8  -2  -7   5  11   7  -3 -11  -8   3  10  -4   1   4  12  -1 -12  -5]
+Team  7's Schedule: [ -8  -9   1   8 -12  -1   6   4  10  -6  -2 -10  12   2   9  -3  11   3   5 -11  -5  -4]
+Team  8's Schedule: [  7  12  11  -7  -6 -11   5   3   9  -5  -1  -9   6   1 -12  -2  10   2   4 -10  -4  -3]
+Team  9's Schedule: [  6   7  10  -6  -5 -10   4   2  -8  -4 -11   8   5  11  -7  -1  12   1   3 -12  -3  -2]
+Team 10's Schedule: [  5   6  -9  -5  -4   9   3   1  -7  -3 -12   7   4  12  -6 -11  -8  11   2   8  -2  -1]
+Team 11's Schedule: [  4   5  -8  -4  -3   8   2  12  -6  -2   9   6   3  -9  -5  10  -7 -10   1   7  -1 -12]
+Team 12's Schedule: [ -2  -8   4   2   7  -4  -1 -11   3   1  10  -3  -7 -10   8   5  -9  -5  -6   9   6  11]
+output distance is  184
+result: 184, iterations: 2000, time:60.98866319656372

@@ -49,3 +49,9 @@ Result 1: result: 72566, iterations: 2000, time:10.974185943603516
 Result 2: result: 74142, iterations: 2000, time:10.565885066986084
 Result 3: result: 73661, iterations: 2000, time:10.553889989852905
 
+fix random idx range issues, using SLS without tabu
+Results for NL10 at 2024-09-17 10:54:23
+Result 1: result: 71433, iterations: 2000, time:12.239163160324097
+Result 2: result: 70237, iterations: 2000, time:11.5660560131073
+Result 3: result: 71273, iterations: 2000, time:11.96865463256836
+

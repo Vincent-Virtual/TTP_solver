@@ -25,3 +25,9 @@ Result 1: result: 252307, iterations: 2000, time:21.793885946273804
 Result 2: result: 256209, iterations: 2000, time:23.157313108444214
 Result 3: result: 254307, iterations: 2000, time:20.732465982437134
 
+fix random idx range issues, using SLS without tabu
+Results for NL14 at 2024-09-17 10:55:54
+Result 1: result: 247736, iterations: 2000, time:25.262612104415894
+Result 2: result: 254240, iterations: 2000, time:24.336062908172607
+Result 3: result: 262464, iterations: 2000, time:23.912216901779175
+

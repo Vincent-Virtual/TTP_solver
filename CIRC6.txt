@@ -56,3 +56,9 @@ Result 1: result: 74, iterations: 2000, time:15.787821054458618
 Result 2: result: 72, iterations: 2000, time:17.351208209991455
 Result 3: result: 72, iterations: 2000, time:15.709822177886963
 
+fix random idx range issues, using SLS without tabu
+Results for CIRC6 at 2024-09-17 10:49:55
+Result 1: result: 66, iterations: 2000, time:4.302081823348999
+Result 2: result: 68, iterations: 2000, time:4.3476643562316895
+Result 3: result: 68, iterations: 2000, time:4.458646059036255
+

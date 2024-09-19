@@ -121,3 +121,9 @@ Result 1: result: 17, iterations: 2000, time:8.763560056686401
 Result 2: result: 17, iterations: 2000, time:8.645910024642944
 Result 3: result: 17, iterations: 2000, time:8.469390153884888
 
+fix random idx range issues, using SLS without tabu
+Results for CON4 at 2024-09-17 10:48:27
+Result 1: result: 17, iterations: 2000, time:2.28344988822937
+Result 2: result: 17, iterations: 2000, time:2.490311861038208
+Result 3: result: 17, iterations: 2000, time:2.2055599689483643
+

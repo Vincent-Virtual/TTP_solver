@@ -125,7 +125,7 @@ for i in range(max_iterations):
         print(i, S_distance)
 
     else:
-        k = (k+1)%5 ## change to 5 for partial swap team
+        k = (k+1)%3 ## change to 5 for partial swap team
         # print("change here")
         # print("k is ", k)
     

@@ -105,3 +105,9 @@ Result 1: result: 8276, iterations: 2000, time:8.367961168289185
 Result 2: result: 8276, iterations: 2000, time:8.198187828063965
 Result 3: result: 8276, iterations: 2000, time:8.119086027145386
 
+fix random idx range issues, using SLS without tabu
+Results for NL4 at 2024-09-17 10:49:10
+Result 1: result: 8276, iterations: 2000, time:2.3841030597686768
+Result 2: result: 8276, iterations: 2000, time:2.4211061000823975
+Result 3: result: 8276, iterations: 2000, time:2.2842891216278076
+
