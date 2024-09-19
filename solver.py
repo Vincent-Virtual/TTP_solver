@@ -126,8 +126,12 @@ for i in range(max_iterations):
 
     else:
         k = (k+1)%3 ## change to 5 for partial swap team
-        # print("change here")
-        # print("k is ", k)
+        # if k == 1:
+        #     k = 3
+        # elif k == 3:
+        #     k = 4
+        # elif k == 4:
+        #     k = 1
     
     # print(i, S_distance)
     # print("violation is", count_violations(S_current))
