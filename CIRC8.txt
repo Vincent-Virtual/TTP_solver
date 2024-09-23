@@ -1,3 +1,13 @@
+Team  1's Schedule: [  2   7  -6  -7  -8   5   6   8  -3  -4  -5   4   3  -2] 16
+Team  2's Schedule: [ -1   8   7  -6  -7  -8   3   5   6  -3  -4  -5   4   1] 16
+Team  3's Schedule: [ -4  -6  -5   8   5   6  -2   7   1   2  -8  -7  -1   4] 16
+Team  4's Schedule: [  3  -5   8   5   6  -7  -8  -6   7   1   2  -1  -2  -3] 16
+Team  5's Schedule: [  6   4   3  -4  -3  -1   7  -2  -8  -7   1   2   8  -6] 18
+Team  6's Schedule: [ -5   3   1   2  -4  -3  -1   4  -2  -8  -7   8   7   5] 18
+Team  7's Schedule: [ -8  -1  -2   1   2   4  -5  -3  -4   5   6   3  -6   8] 16
+Team  8's Schedule: [  7  -2  -4  -3   1   2   4  -1   5   6   3  -6  -5  -7] 16
+132
+
 Results for CIRC8 at 2024-09-01 23:33:33
 Result 1: 170
 Result 2: 174

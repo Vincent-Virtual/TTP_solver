@@ -1,5 +1,5 @@
 from ini_sche import generate_team_centric_schedule
-from parse_solution import parse_schedule_to_array
+# from parse_solution import parse_schedule_to_array
 from common import *
 from neighbourhood import *
 from initial_SA import initial_sa
@@ -101,7 +101,7 @@ for i in range(max_iterations):
     if j == num_teams * 2:  
         S_prime = S_current
     
-    # if i <= 10:
+    # if i >= 1950:
     #     S_2primes, new_distance = iterative_greedy_search(S_prime, neighbourhoods, distance_matrix, k)
     # else:
     S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods, distance_matrix, k)
@@ -119,7 +119,7 @@ for i in range(max_iterations):
         print(i, S_distance)
 
     else:
-        k = (k+1)%5 ## change to 5 for partial swap team
+        k = (k+1)%3 ## change to 5 for partial swap team
         # if k == 1:
         #     k = 3
         # elif k == 3:

@@ -20,7 +20,6 @@ Team  7's Schedule: [  3   9  -5  -9  -1   5   1  -6  -3  -8   6   8  -2  10   4
 Team  8's Schedule: [ 10   2  -6 -10  -9   6   9  -3  -2   7   3  -7  -1   4   5   1  -5  -4]
 Team  9's Schedule: [ -4  -7  -3   7   8   3  -8  -2  -1   4   2   1 -10   5   6  10  -6  -5]
 Team 10's Schedule: [ -8  -5   4   8   6  -4  -6   1   5  -3  -1   3   9  -7  -2  -9   2   7]
-
 13
 13
 13
@@ -92,18 +91,7 @@ Result 1: result: 129, iterations: 2000, time:10.773498058319092
 Result 2: result: 129, iterations: 2000, time:10.824609756469727
 Result 3: result: 129, iterations: 2000, time:10.928631067276001
 
-Team  1's Schedule: [  4   3  -8  -4   9  -3  -7  -6   2   7   8  -2  -5  -9  10   5   6 -10]
-Team  2's Schedule: [  6  10  -7  -6 -10   5  -3  -5  -1   3   7   1  -4  -8  -9   4   8   9]
-Team  3's Schedule: [  5  -1  -9  -5   4   1   2  -4  -6  -2   9   6  10  -7  -8 -10   7   8]
-Team  4's Schedule: [ -1  -9  -5   1  -3   6  10   3  -8 -10   5   8   2  -6  -7  -2   9   7]
-Team  5's Schedule: [ -3  -8   4   3   8  -2   9   2  -7  -9  -4   7   1  10  -6  -1 -10   6]
-Team  6's Schedule: [ -2  -7  10   2   7  -4   8   1   3  -8 -10  -3   9   4   5  -9  -1  -5]
-Team  7's Schedule: [ 10   6   2 -10  -6  -9   1   9   5  -1  -2  -5   8   3   4  -8  -3  -4]
-Team  8's Schedule: [ -9   5   1   9  -5 -10  -6  10   4   6  -1  -4  -7   2   3   7  -2  -3]
-Team  9's Schedule: [  8   4   3  -8  -1   7  -5  -7  10   5  -3 -10  -6   1   2   6  -4  -2]
-Team 10's Schedule: [ -7  -2  -6   7   2   8  -4  -8  -9   4   6   9  -3  -5  -1   3   5   1]
-output distance is  126
-result: 126, iterations: 2000, time:38.39153790473938
+
 
 Team  1's Schedule: [  6   7   2  -7  -6  -2   5   4  10  -5  -4 -10   3  -9  -8  -3   9   8]
 Team  2's Schedule: [  5   6  -1  -6  -5   1   4   3  -9  -4  -3   9 -10  -8  -7  10   8   7]

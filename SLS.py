@@ -30,7 +30,8 @@ def random_neighbour(schedule, neighbourhoods: list, k):
     
 def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k):
     
-    stagnation_threshold = 2 * len(schedule)
+    # stagnation_threshold = 2 * len(schedule)
+    stagnation_threshold = 10
 
     # Initialize the best schedule and cost
     best_schedule = copy.deepcopy(schedule)
