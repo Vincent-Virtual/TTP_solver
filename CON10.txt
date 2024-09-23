@@ -118,3 +118,9 @@ Team 10's Schedule: [  8   4   6  -4  -8  -6   3   7  -1  -3  -7   1   2   5  -9
 output distance is  124
 result: 124, iterations: 2000, time:33.54087519645691, n = 3, k = 5
 
+Use only 3 neighbours, set a fixed number of iterations for stagnation
+Results for CON10 at 2024-09-21 20:31:10
+Result 1: result: 127, iterations: 2000, time:25.846801042556763
+Result 2: result: 128, iterations: 2000, time:18.257650136947632
+Result 3: result: 128, iterations: 2000, time:20.65708303451538
+

@@ -137,6 +137,4 @@ def swap_schedule_rounds(schedule):
     
     return new_schedule
 
-# schedule = parse_schedule_to_array(schedule_str)
-
-# schedule1 = swap_schedule_rounds(schedule)
+parse_ttp_solution("Solutions/NL8_K1_Sol_Brandao.xml")

@@ -74,6 +74,30 @@ def output_schedule(schedule):
         print(f"{team_str}[{formatted_schedule}]")
 
 
+def output_sign_schedule(schedule):
+    for team_index, team_schedule in enumerate(schedule, start=1):
+        # Adjust the team index formatting to include an extra space for single-digit numbers
+        if team_index < 10:
+            team_str = f"Team  {team_index}'s Schedule: "  # Two spaces after 'Team' for single-digit team numbers
+        else:
+            team_str = f"Team {team_index}'s Schedule: "  # One space after 'Team' for double-digit team numbers
+        
+        # Convert each game to '+' for home games and '-' for away games
+        formatted_schedule = " ".join('+' if game > 0 else '-' for game in team_schedule)
+        print(f"{team_str}[ {formatted_schedule} ]")
+
+def ouput_schedule_sign(schedule):
+    for team_index, team_schedule in enumerate(schedule, start=1):
+        # Adjust the team index formatting to include an extra space for single-digit numbers
+        if team_index < 10:
+            team_str = f"Team  {team_index}'s Schedule: "  # Two spaces after 'Team' for single-digit team numbers
+        else:
+            team_str = f"Team {team_index}'s Schedule: "  # One space after 'Team' for double-digit team numbers
+        
+        # Format each game in the schedule to occupy exactly 3 characters
+        formatted_schedule = " ".join(f"{game: 3d}" for game in team_schedule)
+        print(f"{team_str}[{formatted_schedule}]")
+
 def count_violations(schedule):
     at_most_violations = 0
     no_repeater_violations = 0

@@ -121,3 +121,9 @@ Result 1: result: 43, iterations: 2000, time:4.647305011749268
 Result 2: result: 43, iterations: 2000, time:4.284060716629028
 Result 3: result: 43, iterations: 2000, time:4.228822946548462
 
+Use only 3 neighbours, set a fixed number of iterations for stagnation
+Results for CON6 at 2024-09-21 20:28:37
+Result 1: result: 44, iterations: 2000, time:4.14477801322937
+Result 2: result: 43, iterations: 2000, time:3.9656460285186768
+Result 3: result: 44, iterations: 2000, time:3.6316440105438232
+

@@ -1,60 +1,6 @@
 import random
 
-# # alternating home and away for each rotation
-# def generate_round_robin_schedule(num_teams):
-#     if num_teams % 2 != 0:
-#         raise ValueError("Number of teams must be even for this method.")
-    
-#     # Initialize the schedule
-#     schedule = [[] for _ in range(2 * (num_teams - 1))]
-    
-#     # List of teams using zero-based indexing
-#     # teams = list(range(num_teams))
-    
-#     # Generate each round of matches following the rotation technique
-#     # decide the 'stabbing' line, then 'parallel lines'
-
-#     for round in range(num_teams - 1):
-#         ## round indexes the stabbing line
-#         round_matches = []
-#         # starting_team = round + 1
-
-
-#         for i in range(num_teams // 2):
-#         ## i indexed how much left and right from the stabbing line
-#             if i == 0:
-#                 # Alternate home and away for the last team
-#                 if round % 2 == 0:
-#                     round_matches.append((round+1, num_teams))
-#                 else:
-#                     round_matches.append((num_teams, round+1))
-
-#                 # round_matches.append((round + 1, num_teams))
-#                 continue
-            
-#             ## decide the left and right end point for each parallel line
-#             left = (round - i + num_teams-1) % (num_teams-1) + 1
-#             right = (round + i) % (num_teams-1) + 1
-            
-                
-#             ## Alternate btw home and away for each team
-#             if i % 2 == 0:
-#                 round_matches.append((left, right))
-#             else:
-#                 round_matches.append((right, left))
-        
-#         # Create a new list with reversed tuples
-#         mirrored_matches = [(b, a) for a, b in round_matches]
-
-#         # Add the round to the schedule
-#         schedule[round] = round_matches
-
-#         schedule[round + num_teams -1] = mirrored_matches
-    
-#     return schedule
-
-
-## Less frequent alternation
+# alternating home and away for each rotation
 def generate_round_robin_schedule(num_teams):
     if num_teams % 2 != 0:
         raise ValueError("Number of teams must be even for this method.")
@@ -62,37 +8,91 @@ def generate_round_robin_schedule(num_teams):
     # Initialize the schedule
     schedule = [[] for _ in range(2 * (num_teams - 1))]
     
+    # List of teams using zero-based indexing
+    # teams = list(range(num_teams))
+    
     # Generate each round of matches following the rotation technique
+    # decide the 'stabbing' line, then 'parallel lines'
+
     for round in range(num_teams - 1):
+        ## round indexes the stabbing line
         round_matches = []
-        
+        # starting_team = round + 1
+
+
         for i in range(num_teams // 2):
+        ## i indexed how much left and right from the stabbing line
             if i == 0:
-                # Central match: team (round+1) vs team num_teams
+                # Alternate home and away for the last team
                 if round % 2 == 0:
-                    round_matches.append((round + 1, num_teams))
+                    round_matches.append((round+1, num_teams))
                 else:
-                    round_matches.append((num_teams, round + 1))
+                    round_matches.append((num_teams, round+1))
+
+                # round_matches.append((round + 1, num_teams))
                 continue
             
-            # Determine the endpoints for each parallel line
-            left = (round - i + num_teams - 1) % (num_teams - 1) + 1
-            right = (round + i) % (num_teams - 1) + 1
+            ## decide the left and right end point for each parallel line
+            left = (round - i + num_teams-1) % (num_teams-1) + 1
+            right = (round + i) % (num_teams-1) + 1
             
-            # Alternate home and away assignment, with more balanced swaps
-            if round % 2 == 0:
+                
+            ## Alternate btw home and away for each team
+            if i % 2 == 0:
                 round_matches.append((left, right))
             else:
                 round_matches.append((right, left))
         
-        # Create a mirrored list for the second half of the season
+        # Create a new list with reversed tuples
         mirrored_matches = [(b, a) for a, b in round_matches]
 
         # Add the round to the schedule
         schedule[round] = round_matches
-        schedule[round + num_teams - 1] = mirrored_matches
+
+        schedule[round + num_teams -1] = mirrored_matches
     
     return schedule
+
+
+# ## Less frequent alternation
+# def generate_round_robin_schedule(num_teams):
+#     if num_teams % 2 != 0:
+#         raise ValueError("Number of teams must be even for this method.")
+    
+#     # Initialize the schedule
+#     schedule = [[] for _ in range(2 * (num_teams - 1))]
+    
+#     # Generate each round of matches following the rotation technique
+#     for round in range(num_teams - 1):
+#         round_matches = []
+        
+#         for i in range(num_teams // 2):
+#             if i == 0:
+#                 # Central match: team (round+1) vs team num_teams
+#                 if round % 2 == 0:
+#                     round_matches.append((round + 1, num_teams))
+#                 else:
+#                     round_matches.append((num_teams, round + 1))
+#                 continue
+            
+#             # Determine the endpoints for each parallel line
+#             left = (round - i + num_teams - 1) % (num_teams - 1) + 1
+#             right = (round + i) % (num_teams - 1) + 1
+            
+#             # Alternate home and away assignment, with more balanced swaps
+#             if round % 2 == 0:
+#                 round_matches.append((left, right))
+#             else:
+#                 round_matches.append((right, left))
+        
+#         # Create a mirrored list for the second half of the season
+#         mirrored_matches = [(b, a) for a, b in round_matches]
+
+#         # Add the round to the schedule
+#         schedule[round] = round_matches
+#         schedule[round + num_teams - 1] = mirrored_matches
+    
+#     return schedule
 
 
 

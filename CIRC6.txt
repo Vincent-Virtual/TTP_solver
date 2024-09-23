@@ -62,3 +62,9 @@ Result 1: result: 66, iterations: 2000, time:4.302081823348999
 Result 2: result: 68, iterations: 2000, time:4.3476643562316895
 Result 3: result: 68, iterations: 2000, time:4.458646059036255
 
+Use only 3 neighbours, set a fixed number of iterations for stagnation
+Results for CIRC6 at 2024-09-21 20:30:20
+Result 1: result: 68, iterations: 2000, time:5.5353169441223145
+Result 2: result: 70, iterations: 2000, time:3.743350028991699
+Result 3: result: 64, iterations: 2000, time:4.308633089065552
+

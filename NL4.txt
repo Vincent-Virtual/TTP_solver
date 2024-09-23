@@ -111,3 +111,9 @@ Result 1: result: 8276, iterations: 2000, time:2.3841030597686768
 Result 2: result: 8276, iterations: 2000, time:2.4211061000823975
 Result 3: result: 8276, iterations: 2000, time:2.2842891216278076
 
+Use only 3 neighbours, set a fixed number of iterations for stagnation
+Results for NL4 at 2024-09-21 20:29:20
+Result 1: result: 8276, iterations: 2000, time:1.1904268264770508
+Result 2: result: 8276, iterations: 2000, time:1.1614127159118652
+Result 3: result: 8276, iterations: 2000, time:1.2579472064971924
+

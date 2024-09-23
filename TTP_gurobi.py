@@ -83,7 +83,7 @@ m.addConstrs((gp.quicksum(xijk[i, j, k] for k in range(2*n-2)) == 1 for i in ran
 # m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for j in range(n)) <= 3 
 #                   for i in range(n) for k in range(2*n - 2 - 3)), name="C5")
 
-# # Constraint (6): Ensure home stands and road trips have a length of at most 3
+# Constraint (6): Ensure home stands and road trips have a length of at most 3
 # m.addConstrs((gp.quicksum(xijk[i, j, k + l] for l in range(4) for i in range(n)) <= 3 
 #                   for j in range(n) for k in range(2*n - 2 - 3)), name="C6")
 

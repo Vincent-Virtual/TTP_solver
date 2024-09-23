@@ -79,3 +79,26 @@ Result 1: result: 42211, iterations: 2000, time:7.737701177597046
 Result 2: result: 46171, iterations: 2000, time:7.731992244720459
 Result 3: result: 46354, iterations: 2000, time:7.200855016708374
 
+Use only 3 neighbours, set a fixed number of iterations for stagnation
+Results for NL8 at 2024-09-21 20:29:40
+Result 1: result: 44911, iterations: 2000, time:12.838593006134033
+Result 2: result: 45192, iterations: 2000, time:14.379695892333984
+Result 3: result: 44178, iterations: 2000, time:13.265652179718018
+
+Team  1's Schedule: [  6   7   2  -7  -8   3   8  -3  -2   4   5  -4  -5  -6]
+Team  2's Schedule: [  7   5  -1  -8   3   4  -3  -4   1   8   6  -7  -6  -5]
+Team  3's Schedule: [  4   6   5  -4  -2  -1   2   1  -5   7   8  -6  -7  -8]
+Team  4's Schedule: [ -3   8   6   3  -5  -2   5   2  -6  -1   7   1  -8  -7]
+Team  5's Schedule: [  8  -2  -3  -6   4   7  -4  -7   3   6  -1  -8   1   2]
+Team  6's Schedule: [ -1  -3  -4   5   7   8  -7  -8   4  -5  -2   3   2   1]
+Team  7's Schedule: [ -2  -1   8   1  -6  -5   6   5  -8  -3  -4   2   3   4]
+Team  8's Schedule: [ -5  -4  -7   2   1  -6  -1   6   7  -2  -3   5   4   3]
+Team  1's Schedule: [ + + + - - + + - - + + - - - ]
+Team  2's Schedule: [ + + - - + + - - + + + - - - ]
+Team  3's Schedule: [ + + + - - - + + - + + - - - ]
+Team  4's Schedule: [ - + + + - - + + - - + + - - ]
+Team  5's Schedule: [ + - - - + + - - + + - - + + ]
+Team  6's Schedule: [ - - - + + + - - + - - + + + ]
+Team  7's Schedule: [ - - + + - - + + - - - + + + ]
+Team  8's Schedule: [ - - - + + - - + + - - + + + ]
+output distance is  154

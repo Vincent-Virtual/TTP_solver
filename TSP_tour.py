@@ -66,6 +66,8 @@ distance_matrix = np.array([
     [40, 35, 37, 31, 12, 0]
 ])
 
+# distance_matrix = [[1 for _ in range(10)] for _ in range(n)]
+
 initial_tour = generate_initial_tour(n, home_team)
 optimized_tour, min_distance = optimize_tour(initial_tour, distance_matrix, l, u, home_team)
 print("Optimized Tour:", optimized_tour)
