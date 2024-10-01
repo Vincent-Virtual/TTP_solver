@@ -11,35 +11,14 @@ import sys
 
 ##buggy
 
-def calculate_hamming_distance(schedule1, schedule2):
-    """
-    Calculate the Hamming distance between two 2D lists of schedules.
-    This function compares corresponding elements from two schedules and counts the number of differences.
-    
-    Parameters:
-    schedule1, schedule2: List[List[int]]
-        Two schedules to compare, where each schedule is a list of team schedules.
-        
-    Returns:
-    int: The total Hamming distance between the two schedules.
-    """
-    # Initialize the distance
-    hamming_distance = 0
-    
-    # Iterate over teams and rounds
-    for team_schedule1, team_schedule2 in zip(schedule1, schedule2):
-        for round1, round2 in zip(team_schedule1, team_schedule2):
-            if round1 != round2:
-                hamming_distance += 1
-                
-    return hamming_distance
 
-def greedy_search(schedule, distance_matrix):
+
+def greedy_search(schedule, distance_matrix, heuristic_func):
     num_teams = len(schedule)
     
     # Initialize the best schedule and cost
     best_schedule = copy.deepcopy(schedule)
-    best_cost = calculate_total_distance(best_schedule, distance_matrix)
+    best_cost = heuristic_func(best_schedule)
     improved = True  # Flag to track if an improvement was found
     
     while improved:
@@ -49,7 +28,6 @@ def greedy_search(schedule, distance_matrix):
         
         # Loop through all possible neighborhood operations
         for k in range(5):  # k ranges from 0 to 4, representing the 5 neighborhood operations
-            # new_schedule = None
 
             # Apply the appropriate neighborhood operation based on k
             if k == 1 or k == 2:
@@ -66,7 +44,7 @@ def greedy_search(schedule, distance_matrix):
 
                         # Check if the new schedule is better
                         if count_violations(new_schedule) == 0:
-                            new_cost = calculate_total_distance(new_schedule, distance_matrix)
+                            new_cost = heuristic_func(new_schedule)
                             if new_cost < current_best_cost:
                                 current_best_schedule = new_schedule
                                 current_best_cost = new_cost
@@ -78,7 +56,7 @@ def greedy_search(schedule, distance_matrix):
                         for other_idx in range((num_teams - 1) * 2):
                             new_schedule = partial_swap_team(copy.deepcopy(best_schedule), idx1, idx2, other_idx)
                             if count_violations(new_schedule) == 0:
-                                new_cost = calculate_total_distance(new_schedule, distance_matrix)
+                                new_cost = heuristic_func(new_schedule)
                                 if new_cost < current_best_cost:
                                     print("k=4 update")
                                     current_best_schedule = new_schedule
@@ -93,7 +71,7 @@ def greedy_search(schedule, distance_matrix):
 
                         # Check if the new schedule is better
                         if count_violations(new_schedule) == 0:
-                            new_cost = calculate_total_distance(new_schedule, distance_matrix)
+                            new_cost = heuristic_func(new_schedule)
                             if new_cost < current_best_cost:
                                 current_best_schedule = new_schedule
                                 current_best_cost = new_cost
@@ -105,8 +83,7 @@ def greedy_search(schedule, distance_matrix):
                         for other_idx in range(num_teams):
                             new_schedule = partial_swap_round(copy.deepcopy(best_schedule), idx1, idx2, other_idx)
                             if count_violations(new_schedule) == 0:
-                                # print("here?")
-                                new_cost = calculate_total_distance(new_schedule, distance_matrix)
+                                new_cost = heuristic_func(new_schedule)
                                 if new_cost < current_best_cost:
                                     print("k=3 update")
                                     current_best_schedule = new_schedule
@@ -120,6 +97,7 @@ def greedy_search(schedule, distance_matrix):
             improved = True  # We found an improvement, so continue the search
 
     return best_schedule, best_cost
+
 
 
 
@@ -158,13 +136,49 @@ initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 print("initial schedule is")
 output_schedule(initial_schedule)
 
-print("initial violation is ", count_violations(initial_schedule))
-print("initial distance is ", initial_distance)
-print()
 
-# neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
-# neighbourhoods = [swap_home, partial_swap_round, partial_swap_team]
+optimal_schedule_str = '''
+Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
+Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3]
+Team  3's Schedule: [ -4   5   4   1  -6   2  -1  -5   6  -2]
+Team  4's Schedule: [  3  -6  -3  -2   1   5   2  -1  -5   6]
+Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
+Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]'''
 
-improved_schedule, improved_cost = greedy_search(initial_schedule, distance_matrix)
+optimal_schedule = parse_schedule_to_array(optimal_schedule_str)
+
+
+
+
+def distance_heuristic(schedule):
+    return calculate_total_distance(schedule, distance_matrix)
+
+
+def hamming_heuristic(schedule):
+    """
+    Calculate the Hamming distance between two 2D lists of schedules.
+    This function compares corresponding elements from two schedules and counts the number of differences.
+    
+    Parameters:
+    schedule1, schedule2: List[List[int]]
+        Two schedules to compare, where each schedule is a list of team schedules.
+        
+    Returns:
+    int: The total Hamming distance between the two schedules.
+    """
+    # Initialize the distance
+    hamming_distance = 0
+    
+    # Iterate over teams and rounds
+    for team_schedule1, team_schedule2 in zip(optimal_schedule, schedule):
+        for round1, round2 in zip(team_schedule1, team_schedule2):
+            if round1 != round2:
+                hamming_distance += 1
+                
+    return hamming_distance
+
+heuristic_func = distance_heuristic
+
+improved_schedule, improved_cost = greedy_search(initial_schedule, distance_matrix, heuristic_func)
 output_schedule(improved_schedule)
 print(calculate_total_distance(improved_schedule, distance_matrix))
