@@ -1,34 +1,40 @@
 import copy
 import random
 from common import cost_with_violations, count_violations, calculate_total_distance
+from neighbourhood import *
 
-def random_neighbour(schedule, neighbourhoods: list, k):
+def random_neighbour(schedule, k):
     num_teams = len(schedule)
 
     if k == 1 or k == 2 or k == 4:
         # idx1 < idx2 to break symmetry
         idx1, idx2 = sorted(random.sample(range(num_teams), 2))
 
-        if k != 4:
-            return neighbourhoods[k](schedule, idx1, idx2)
+        if k == 1:
+            return swap_home(schedule, idx1, idx2)
+        
+        if k == 2:
+            return swap_team(schedule, idx1, idx2)
         
         if k == 4:
             other_idx = random.randrange((num_teams-1) * 2)
-            return neighbourhoods[k](schedule, idx1, idx2, other_idx)
+            return partial_swap_team(schedule, idx1, idx2, other_idx)
 
     ## k == 0 or k == 3     idx1, idx2 can be all round indices
     idx1, idx2 = sorted(random.sample(range((num_teams - 1) * 2), 2))
 
     if k == 0:
         # print((idx1, idx2))
-        return neighbourhoods[k](schedule, idx1, idx2)
+        return swap_round(schedule, idx1, idx2)
     
     if k == 3:
         other_idx = random.randrange(num_teams)
         # print((idx1, idx2, other_idx))
-        return neighbourhoods[k](schedule, idx1, idx2, other_idx)
-    
-def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k):
+        return partial_swap_round(schedule, idx1, idx2, other_idx)
+
+
+
+def stochastic_local_search(schedule, distance_matrix, k):
     
     # stagnation_threshold = 2 * len(schedule)
     stagnation_threshold = 10
@@ -40,7 +46,7 @@ def stochastic_local_search(schedule, neighbourhoods, distance_matrix, k):
 
     while True:
         # Generate a random neighbor from the current best schedule
-        new_schedule = random_neighbour(copy.deepcopy(best_schedule), neighbourhoods, k)
+        new_schedule = random_neighbour(copy.deepcopy(best_schedule), k)
 
         # Check if there are no violations
         if count_violations(new_schedule) == 0:

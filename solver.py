@@ -35,16 +35,11 @@ initial_schedule = generate_team_centric_schedule(num_teams)
 initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
 print("initial schedule is")
-output_schedule(initial_schedule)
+# output_schedule(initial_schedule)
 
-print("initial violation is ", count_violations(initial_schedule))
-print("initial distance is ", initial_distance)
-print()
-
-
-#A "distance_matrix" argument means this is "general SA" method
-# CSC_schedule = initial_sa(copy.deepcopy(initial_schedule), distance_matrix)
-# CSC_distance = calculate_total_distance(CSC_schedule, distance_matrix)
+# print("initial violation is ", count_violations(initial_schedule))
+# print("initial distance is ", initial_distance)
+# print()
 
 
 CSC_schedule = initial_schedule
@@ -63,7 +58,7 @@ print()
 
 
 max_iterations = 2000
-neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
+# neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
 
 # tabu
 
@@ -90,7 +85,7 @@ for i in range(max_iterations):
     # if can't find one within some checks, just use S_current
     j = 0
     while j < num_teams * 2:
-        schedule1 = random_neighbour(copy.deepcopy(S_current), neighbourhoods, k)
+        schedule1 = random_neighbour(copy.deepcopy(S_current), k)
         if count_violations(schedule1) == 0:
             S_prime = schedule1
             break
@@ -98,14 +93,16 @@ for i in range(max_iterations):
     
     # print("while loop end")
     ## if the previous loop can't find a feasible random neighbour
-    if j == num_teams * 2:  
+    if j == num_teams * 2:
+        print("can't find random neighbour")
         S_prime = S_current
     
     # if i >= 1950:
     #     S_2primes, new_distance = iterative_greedy_search(S_prime, neighbourhoods, distance_matrix, k)
     # else:
-    S_2primes, new_distance = stochastic_local_search(S_prime, neighbourhoods, distance_matrix, k)
+    S_2primes, new_distance = stochastic_local_search(S_prime, distance_matrix, k)
 
+    # print(i, new_distance)
 
     if new_distance < S_distance:         ## f(S'') < f(S)
         S_current = S_2primes
@@ -116,10 +113,10 @@ for i in range(max_iterations):
 
         # print("stay here")
         # print("k is ", k)
-        print(i, S_distance)
+        print("improved", i, S_distance)
 
     else:
-        k = (k+1)%3 ## change to 5 for partial swap team
+        k = (k+1)%5 ## change to 5 for partial swap team
         # if k == 1:
         #     k = 3
         # elif k == 3:
@@ -133,8 +130,9 @@ for i in range(max_iterations):
 
 end_time = time.time()
 
+# output_schedule_with_distances(S_star, distance_matrix)
 output_schedule(S_star)
-output_sign_schedule(S_star)
+# output_sign_schedule(S_star)
 print("output distance is ", best_distance)
 
 # with open('schedule.json', 'w') as file:
