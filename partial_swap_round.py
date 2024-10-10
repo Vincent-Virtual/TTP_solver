@@ -1,10 +1,12 @@
-def partial_swap_round(schedule, round1_idx, round2_idx, teamA_idx):
+def partial_swap_round(schedule, round1_idx, round2_idx, teamA_idx, return_pivot_team_idx = False):
     """
     This function swaps all matches in round1 and round2 except teams 
     who have the same opponent in both rounds
     """
     ## same opponent in both rounds, not valid
     if schedule[teamA_idx][round1_idx] == -schedule[teamA_idx][round2_idx]:
+        if return_pivot_team_idx:
+            return schedule, -1     # return pivot_team_idx as -1 to refer to not valid swap
         return schedule
 
     num_teams = len(schedule)
@@ -49,6 +51,9 @@ def partial_swap_round(schedule, round1_idx, round2_idx, teamA_idx):
         schedule[team_idx][round1_idx], schedule[team_idx][round2_idx] = \
         schedule[team_idx][round2_idx], schedule[team_idx][round1_idx]
 
+    if return_pivot_team_idx:
+        return schedule, smallest_idx
+    
     return schedule
 
 

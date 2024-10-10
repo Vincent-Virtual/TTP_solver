@@ -49,18 +49,18 @@ def greedy_search(schedule, distance_matrix, heuristic_func):
                                 current_best_schedule = new_schedule
                                 current_best_cost = new_cost
 
-            if k == 4:
-                # Partial swap team requires an additional index (other_idx)
-                for idx1 in range(num_teams):
-                    for idx2 in range(idx1 + 1, num_teams):
-                        for other_idx in range((num_teams - 1) * 2):
-                            new_schedule = partial_swap_team(copy.deepcopy(best_schedule), idx1, idx2, other_idx)
-                            if count_violations(new_schedule) == 0:
-                                new_cost = heuristic_func(new_schedule)
-                                if new_cost < current_best_cost:
-                                    print("k=4 update")
-                                    current_best_schedule = new_schedule
-                                    current_best_cost = new_cost
+            # if k == 4:
+            #     # Partial swap team requires an additional index (other_idx)
+            #     for idx1 in range(num_teams):
+            #         for idx2 in range(idx1 + 1, num_teams):
+            #             for other_idx in range((num_teams - 1) * 2):
+            #                 new_schedule = partial_swap_team(copy.deepcopy(best_schedule), idx1, idx2, other_idx)
+            #                 if count_violations(new_schedule) == 0:
+            #                     new_cost = heuristic_func(new_schedule)
+            #                     if new_cost < current_best_cost:
+            #                         print("k=4 update")
+            #                         current_best_schedule = new_schedule
+            #                         current_best_cost = new_cost
 
             if k == 0:
                 for idx1 in range((num_teams - 1) * 2):
@@ -76,18 +76,18 @@ def greedy_search(schedule, distance_matrix, heuristic_func):
                                 current_best_schedule = new_schedule
                                 current_best_cost = new_cost
 
-            if k == 3:
-                for idx1 in range((num_teams - 1) * 2):
-                    for idx2 in range(idx1 + 1, (num_teams - 1) * 2):
-                        # Partial swap round requires an additional index (other_idx)
-                        for other_idx in range(num_teams):
-                            new_schedule = partial_swap_round(copy.deepcopy(best_schedule), idx1, idx2, other_idx)
-                            if count_violations(new_schedule) == 0:
-                                new_cost = heuristic_func(new_schedule)
-                                if new_cost < current_best_cost:
-                                    print("k=3 update")
-                                    current_best_schedule = new_schedule
-                                    current_best_cost = new_cost
+            # if k == 3:
+            #     for idx1 in range((num_teams - 1) * 2):
+            #         for idx2 in range(idx1 + 1, (num_teams - 1) * 2):
+            #             # Partial swap round requires an additional index (other_idx)
+            #             for other_idx in range(num_teams):
+            #                 new_schedule = partial_swap_round(copy.deepcopy(best_schedule), idx1, idx2, other_idx)
+            #                 if count_violations(new_schedule) == 0:
+            #                     new_cost = heuristic_func(new_schedule)
+            #                     if new_cost < current_best_cost:
+            #                         print("k=3 update")
+            #                         current_best_schedule = new_schedule
+            #                         current_best_cost = new_cost
         
         # If we found an improvement, apply the best move
         if current_best_cost < best_cost:
@@ -137,15 +137,15 @@ print("initial schedule is")
 output_schedule(initial_schedule)
 
 
-optimal_schedule_str = '''
-Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
-Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3]
-Team  3's Schedule: [ -4   5   4   1  -6   2  -1  -5   6  -2]
-Team  4's Schedule: [  3  -6  -3  -2   1   5   2  -1  -5   6]
-Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
-Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]'''
+# optimal_schedule_str = '''
+# Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
+# Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3]
+# Team  3's Schedule: [ -4   5   4   1  -6   2  -1  -5   6  -2]
+# Team  4's Schedule: [  3  -6  -3  -2   1   5   2  -1  -5   6]
+# Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
+# Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]'''
 
-optimal_schedule = parse_schedule_to_array(optimal_schedule_str)
+# optimal_schedule = parse_schedule_to_array(optimal_schedule_str)
 
 
 

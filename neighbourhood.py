@@ -1,8 +1,8 @@
 ##Neighbourhood swaps
 
-from partial_swap_round import partial_swap_round
+from partial_swap_round import *
 
-from partial_swap_team import partial_swap_team
+from partial_swap_team import *
 
 def swap_round(schedule, round1_idx, round2_idx):
     """
@@ -100,20 +100,3 @@ def swap_team(schedule, team1_idx, team2_idx):
             schedule[affected_team2_idx][i] = abs(schedule[affected_team2_idx][i])
     return schedule
 
-
-def swap_schedule_rounds(schedule):
-    num_teams = len(schedule)
-    num_rounds = len(schedule[0])
-    
-    # Calculate the midpoint to divide the schedule into two halves
-    mid = num_rounds // 2
-    
-    # Swap the first half of the rounds with the last half
-    new_schedule = []
-    
-    for team in schedule:
-        # Swap the two halves of the rounds
-        new_team_schedule = team[mid:] + team[:mid]
-        new_schedule.append(new_team_schedule)
-    
-    return new_schedule

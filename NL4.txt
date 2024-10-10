@@ -1,3 +1,9 @@
+[0, 745, 665, 929]
+[745, 0, 80, 337]
+[665, 80, 0, 380]
+[929, 337, 380, 0]
+
+
 Result 1: 8276
 Result 2: 8552
 Average result over 2 runs for NL4 is: 8414.00
@@ -117,3 +123,55 @@ Result 1: result: 8276, iterations: 2000, time:1.1904268264770508
 Result 2: result: 8276, iterations: 2000, time:1.1614127159118652
 Result 3: result: 8276, iterations: 2000, time:1.2579472064971924
 
+
+Team  1's Schedule: [ -4  -2  -3   2   4   3]
+Team  2's Schedule: [  3   1  -4  -1  -3   4]
+Team  3's Schedule: [ -2  -4   1   4   2  -1]
+Team  4's Schedule: [  1   3   2  -3  -1  -2]
+Team  1's Schedule: [ - - - + + + ]
+Team  2's Schedule: [ + + - - - + ]
+Team  3's Schedule: [ - - + + + - ]
+Team  4's Schedule: [ + + + - - - ]
+output distance is  8276
+
+
+Team  1's Schedule: [ -4  -2  -3   4   2   3] 2011
+Team  2's Schedule: [  3   1  -4  -3  -1   4] 2127
+Team  3's Schedule: [ -2  -4   1   2   4  -1] 2127
+Team  4's Schedule: [  1   3   2  -1  -3  -2] 2011
+output distance is  8276
+
+Team  1's Schedule: [ -4  -2  -3   2   4   3] 2011 3
+Team  2's Schedule: [  3   1  -4  -1  -3   4] 2011 3
+Team  3's Schedule: [ -2  -4   1   4   2  -1] 2127 3
+Team  4's Schedule: [  1   3   2  -3  -1  -2] 2127 2
+
+Team  1's Schedule: [  3   2   4  -3  -2  -4] 2011 3
+Team  2's Schedule: [  4  -1  -3  -4   1   3] 2127 2
+Team  3's Schedule: [ -1   4   2   1  -4  -2] 2127 3
+Team  4's Schedule: [ -2  -3  -1   2   3   1] 2011 3
+
+Team  1's Schedule: [ -4  -2  -3   4   2   3] 2011 3
+Team  2's Schedule: [  3   1   4  -3  -1  -4] 2011 3
+Team  3's Schedule: [ -2  -4   1   2   4  -1] 2127 3
+Team  4's Schedule: [  1   3  -2  -1  -3   2] 2127 2
+
+Team  1's Schedule: [ -4  -2  -3   4   2   3] 2011
+Team  2's Schedule: [  3   1  -4  -3  -1   4] 2127
+Team  3's Schedule: [ -2  -4   1   2   4  -1] 2127
+Team  4's Schedule: [  1   3   2  -1  -3  -2] 2011
+
+Team  1's Schedule: [  3   4   2  -3  -2  -4] 2011
+Team  2's Schedule: [  4  -3  -1  -4   1   3] 2011
+Team  3's Schedule: [ -1   2   4   1  -4  -2] 2127
+Team  4's Schedule: [ -2  -1  -3   2   3   1] 2127
+
+Team  1's Schedule: [  0   2   0  -3  -4  -0   3   4  -2  -0] 2 665+380+665 +745+745    3200
+Team  2's Schedule: [ -0  -1  -0   4   0  -3  -4   0   1   3] 2 745+745     +80+380+337 2287
+Team  3's Schedule: [ -4   0   4   1  -0   2  -1  -0   0  -2] 1 380+380     +665+745+80 2250
+Team  4's Schedule: [  3  -0  -3  -2   1   0   2  -1  -0   0] 2 380+80+337  +929+929    2655
+                       a   a   b       c   c       d   b   d                           10392
+
+
+Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
+Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]

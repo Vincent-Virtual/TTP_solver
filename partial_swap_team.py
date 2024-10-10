@@ -1,24 +1,12 @@
-# def output_schedule(schedule):
-#     for team_index, team_schedule in enumerate(schedule, start=1):
-#         # Adjust the team index formatting to include an extra space for single-digit numbers
-#         if team_index < 10:
-#             team_str = f"Team  {team_index}'s Schedule: "  # Two spaces after 'Team' for single-digit team numbers
-#         else:
-#             team_str = f"Team {team_index}'s Schedule: "  # One space after 'Team' for double-digit team numbers
-        
-#         # Format each game in the schedule to occupy exactly 3 characters
-#         formatted_schedule = " ".join(f"{game: 3d}" for game in team_schedule)
-#         print(f"{team_str}[{formatted_schedule}]")
-
-
-
-def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
+def partial_swap_team(schedule, team1_idx, team2_idx, start_round, return_pivot_round_idx = False):
     num_rounds = len(schedule[0])
     # print(start_round, len(schedule[team1_idx]))
     # print(len(schedule[team1_idx]))
     # print(start_round)
 
     if abs(schedule[team1_idx][start_round]) == team2_idx + 1:
+        if return_pivot_round_idx:
+            return schedule, -1     # return pivot_team_idx as -1 to refer to not valid swap
         return schedule
 
 
@@ -67,6 +55,10 @@ def partial_swap_team(schedule, team1_idx, team2_idx, start_round):
             schedule[affected_team2_idx][r] = -abs(schedule[affected_team2_idx][r])
         else:
             schedule[affected_team2_idx][r] = abs(schedule[affected_team2_idx][r])
+
+    if return_pivot_round_idx:
+        return schedule, smallest_idx
+    
     return schedule
     
 

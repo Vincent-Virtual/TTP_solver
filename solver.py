@@ -2,7 +2,7 @@ from ini_sche import generate_team_centric_schedule
 # from parse_solution import parse_schedule_to_array
 from common import *
 from neighbourhood import *
-from initial_SA import initial_sa
+
 from SLS import *
 from greedy import iterative_greedy_search
 
@@ -32,10 +32,16 @@ num_teams = len(distance_matrix)
 
 # initial_schedule = parse_schedule_to_array(schedule_str)
 initial_schedule = generate_team_centric_schedule(num_teams)
+# initial_schedule = partial_swap_round(initial_schedule, 0, 1, 1)
+# initial_schedule = partial_swap_round(initial_schedule, 1, 3, 1)
+# initial_schedule = partial_swap_round(initial_schedule, 2, 3, 1)
+# initial_schedule = partial_swap_round(initial_schedule, 4, 5, 1)
+# initial_schedule = partial_swap_round(initial_schedule, 6, 7, 1)
+
 initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
 print("initial schedule is")
-# output_schedule(initial_schedule)
+output_schedule(initial_schedule)
 
 # print("initial violation is ", count_violations(initial_schedule))
 # print("initial distance is ", initial_distance)
@@ -66,7 +72,11 @@ max_iterations = 2000
 k = 0
 
 S0_schedule = CSC_schedule
+
+
 S0_distance = calculate_total_distance(S0_schedule, distance_matrix)
+
+
 
 S_star = S0_schedule
 best_distance = S0_distance
@@ -94,7 +104,7 @@ for i in range(max_iterations):
     # print("while loop end")
     ## if the previous loop can't find a feasible random neighbour
     if j == num_teams * 2:
-        print("can't find random neighbour")
+        # print("can't find random neighbour")
         S_prime = S_current
     
     # if i >= 1950:
@@ -130,10 +140,12 @@ for i in range(max_iterations):
 
 end_time = time.time()
 
-# output_schedule_with_distances(S_star, distance_matrix)
+
 output_schedule(S_star)
+output_schedule_with_distances(S_star, distance_matrix)
 # output_sign_schedule(S_star)
-print("output distance is ", best_distance)
+# print("output distance is ", best_distance)
+
 
 # with open('schedule.json', 'w') as file:
 #     file.write('[')  # Start of the array
@@ -149,7 +161,7 @@ assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they
 # Calculate and print the elapsed time
 elapsed_time = end_time - start_time
 # print(f"Execution time: {elapsed_time} seconds")
-
+print()
 print("result: {}, iterations: {}, time:{}".format(best_distance, max_iterations, elapsed_time))
 
 

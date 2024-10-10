@@ -29,7 +29,7 @@ def read_xml_and_create_distance_matrix(file_path):
     return distance_matrix
 
 
-def calculate_total_distance(schedule, distance_matrix):
+def calculate_total_distance(schedule, distance_matrix, flag = True):
     total_distance = 0
     num_teams = len(schedule)
 
@@ -56,6 +56,9 @@ def calculate_total_distance(schedule, distance_matrix):
             team_travel += distance_matrix[current_location][team_idx]
         
         # print(team_travel)
+        # if flag and team_idx == 1:
+        #     total_distance += (2.5 * team_travel)
+        #     continue
         total_distance += team_travel
 
     return total_distance
@@ -72,6 +75,59 @@ def output_schedule(schedule):
         # Format each game in the schedule to occupy exactly 3 characters
         formatted_schedule = " ".join(f"{game: 3d}" for game in team_schedule)
         print(f"{team_str}[{formatted_schedule}]")
+
+
+## still buggy
+def output_schedule_with_distances(schedule, distance_matrix):
+    total_distance = 0
+
+    for team_index, team_schedule in enumerate(schedule, start=1):
+        # Adjust the team index formatting to include an extra space for single-digit numbers
+        if team_index < 10:
+            team_str = f"Team  {team_index}'s Schedule: "  # Two spaces after 'Team' for single-digit team numbers
+        else:
+            team_str = f"Team {team_index}'s Schedule: "  # One space after 'Team' for double-digit team numbers
+        
+        current_location = team_index - 1  # Start at team's home location (indexed from 0)
+        formatted_schedule = []
+        total_team_distance = 0
+
+        for game in team_schedule:
+            if game < 0:  # Away game
+                opponent_idx = abs(game) - 1
+                # Calculate distance from the current location to the away game location
+                distance = distance_matrix[current_location][opponent_idx]
+                current_location = opponent_idx  # Update location to the away game location
+            else:  # Home game
+                if current_location != team_index - 1:  # If not already at home, calculate the distance to home
+                    distance = distance_matrix[current_location][team_index - 1]
+                    current_location = team_index - 1  # Update location to home
+                else:
+                    distance = 0  # Already at home, so no distance traveled
+
+            total_team_distance += distance  # Sum up distances for the team
+            # Format the game with the calculated distance
+            formatted_schedule.append(f"{game: 3d}({distance})")
+
+        # Ensure return to home after the last game if the last game was away
+        if current_location != team_index - 1:
+            return_home_distance = distance_matrix[current_location][team_index - 1]
+            total_team_distance += return_home_distance
+            formatted_schedule.append(f" Home({return_home_distance})")  # Add the return to home distance
+
+        # Join formatted games into a string
+        formatted_schedule_str = " ".join(formatted_schedule)
+        # Append the total team distance to the output
+        print(f"{team_str}[{formatted_schedule_str}]  Total travel distance: {total_team_distance}m")
+
+        total_distance += total_team_distance
+    
+    print("total distance is , ",total_distance)
+# The function now includes accounting for returning to the home after the final game if needed.
+
+
+# The function is now properly defined to append the total travel distance for each team.
+
 
 
 def output_sign_schedule(schedule):

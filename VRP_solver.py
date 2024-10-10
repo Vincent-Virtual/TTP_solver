@@ -6,17 +6,17 @@ def create_data_model(distance_matrix, depot):
     data = {}
     n = len(distance_matrix)  # Number of teams
     # Set number of vehicles as an upper limit: ceil(n / 3) + 1
-    data['num_vehicles'] = math.ceil(n / 3) + 1
+    data['num_vehicles'] = math.ceil(n / 3)
     data['depot'] = depot  # Set the current team as the depot
     data['distance_matrix'] = distance_matrix
     # Set demands: Depot has a demand of 0, others have a demand of 1
     
     #veh num no more than n
-    data['demands'] = [0 if i == depot else 1 for i in range(n)]
+    # data['demands'] = [0 if i == depot else 1 for i in range(n)]
     
 
     # if force the vehicle num to be exactly n
-    # data['demands'] = [1] * n
+    data['demands'] = [1] * n
 
     data['vehicle_capacities'] = [3] * data['num_vehicles']  # Each vehicle can visit up to 3 locations
     return data
@@ -30,7 +30,7 @@ def print_solution_custom(manager, routing, solution, data):
         route = []
         while not routing.IsEnd(index):
             node_index = manager.IndexToNode(index)
-            route.append(str(node_index))  # Use the team index for the route
+            route.append(str(node_index+1))  # Use the team index for the route
             previous_index = index
             index = solution.Value(routing.NextVar(index))
             route_distance += routing.GetArcCostForVehicle(previous_index, index, vehicle_id)
@@ -103,12 +103,17 @@ def solve_vrp_for_each_team_as_depot(distance_matrix):
 
 # Example call with a given distance matrix
 distance_matrix = [
-    [0, 745, 665, 929, 605, 521],
-    [745, 0, 80, 337, 1090, 315],
-    [665, 80, 0, 380, 1020, 257],
-    [929, 337, 380, 0, 1380, 408],
-    [605, 1090, 1020, 1380, 0, 1010],
-    [521, 315, 257, 408, 1010, 0]
+    # [0, 745, 665, 929, 605, 521],
+    # [745, 0, 80, 337, 1090, 315],
+    # [665, 80, 0, 380, 1020, 257],
+    # [929, 337, 380, 0, 1380, 408],
+    # [605, 1090, 1020, 1380, 0, 1010],
+    # [521, 315, 257, 408, 1010, 0]
+
+    [0, 745, 665, 929],
+    [745, 0, 80, 337],
+    [665, 80, 0, 380],
+    [929, 337, 380, 0]
 ]
 
 if __name__ == "__main__":

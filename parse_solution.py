@@ -1,5 +1,6 @@
 from xml.etree import ElementTree as ET
 from common import *
+from neighbourhood import *
 
 import sys
 
@@ -78,28 +79,54 @@ def parse_schedule_to_array(schedule_str: str):
     # print(type(arr[0][0]))
     # print(arr)
     # print(schedules)
-    print(calculate_total_distance(schedule, arr))
+    # print(calculate_total_distance(schedule, arr))
     return schedule
 
 
 
-filename = ""
-if len(sys.argv) > 1:
-    filename = sys.argv[1]  # sys.argv[1] is the first command-line argument
+# filename = ""
+# if len(sys.argv) > 1:
+#     filename = sys.argv[1]  # sys.argv[1] is the first command-line argument
 
-else:
-    print("No arguments provided.")
-    sys.exit(1)
+# else:
+#     print("No arguments provided.")
+#     sys.exit(1)
 
 
-file_path = './Instances/{}.xml'.format(filename)
+# file_path = './Instances/{}.xml'.format(filename)
 
-distance_matrix = read_xml_and_create_distance_matrix(file_path)
-schedule = parse_ttp_solution("./Solutions/CIRC/CIRC10_Sol_Uthus.xml")
+# distance_matrix = read_xml_and_create_distance_matrix(file_path)
+
+# schedule = parse_ttp_solution("./Solutions/CIRC/CIRC10_Sol_Uthus.xml")
+schedule_str = '''
+Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
+Team  2's Schedule: [ -3  -1  -5   4  -6   5  -4   6   1   3]
+Team  3's Schedule: [  2  -6   4   1   5  -4  -1  -5   6  -2]
+Team  4's Schedule: [ -6   5  -3  -2   1   3   2  -1  -5   6]
+Team  5's Schedule: [ -1  -4   2   6  -3  -2  -6   3   4   1]
+Team  6's Schedule: [  4   3  -1  -5   2   1   5  -2  -3  -4]'''
+
+schedule = parse_schedule_to_array(schedule_str)
 output_schedule(schedule)
+print()
+schedule = partial_swap_team(schedule, 1, 3, 0)
+output_schedule(schedule)
+print()
+schedule = swap_home(schedule, 2, 3)
+output_schedule(schedule)
+print()
+schedule = partial_swap_team(schedule, 2, 3, 1)
+output_schedule(schedule)
+print()
+# schedule = partial_swap_team(schedule, 1, 2, 4)
+# output_schedule(schedule)
+# print()
+# schedule = partial_swap_team(schedule, 1, 2, 5)
+# output_schedule(schedule)
+# output_schedule_with_distances(schedule, distance_matrix)
 
-print(calculate_total_distance(schedule, distance_matrix))
+# print(calculate_total_distance(schedule, distance_matrix))
 # print(count_violations(schedule))
 
-for row in distance_matrix:
-    print(row)
+# for row in distance_matrix:
+#     print(row)

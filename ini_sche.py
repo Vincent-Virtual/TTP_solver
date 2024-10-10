@@ -54,7 +54,7 @@ def generate_round_robin_schedule(num_teams):
     return schedule
 
 
-# ## Less frequent alternation
+## Less frequent alternation
 # def generate_round_robin_schedule(num_teams):
 #     if num_teams % 2 != 0:
 #         raise ValueError("Number of teams must be even for this method.")
