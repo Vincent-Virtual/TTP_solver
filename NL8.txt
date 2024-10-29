@@ -97,3 +97,12 @@ Result 1: result: 44911, iterations: 2000, time:12.838593006134033
 Result 2: result: 45192, iterations: 2000, time:14.379695892333984
 Result 3: result: 44178, iterations: 2000, time:13.265652179718018
 
+Team  1's Schedule: [ -5  -2   4   8   3  -6  -3  -4   2   7  -8  -7   6   5]
+Team  2's Schedule: [ -4   1   5  -6  -7  -8   7   6  -1  -5  -3   8   4   3]
+Team  3's Schedule: [ -6  -8  -7   5  -1  -5   1   7   6  -4   2   4   8  -2]
+Team  4's Schedule: [  2  -5  -1  -7   6   7  -8   1   5   3  -6  -3  -2   8]
+Team  5's Schedule: [  1   4  -2  -3   8   3  -6  -8  -4   2   7   6  -7  -1]
+Team  6's Schedule: [  3   7  -8   2  -4   1   5  -2  -3   8   4  -5  -1  -7]
+Team  7's Schedule: [ -8  -6   3   4   2  -4  -2  -3   8  -1  -5   1   5   6]
+Team  8's Schedule: [  7   3   6  -1  -5   2   4   5  -7  -6   1  -2  -3  -4]
+41959

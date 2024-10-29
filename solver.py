@@ -31,12 +31,10 @@ num_teams = len(distance_matrix)
 
 
 # initial_schedule = parse_schedule_to_array(schedule_str)
+
+
 initial_schedule = generate_team_centric_schedule(num_teams)
-# initial_schedule = partial_swap_round(initial_schedule, 0, 1, 1)
-# initial_schedule = partial_swap_round(initial_schedule, 1, 3, 1)
-# initial_schedule = partial_swap_round(initial_schedule, 2, 3, 1)
-# initial_schedule = partial_swap_round(initial_schedule, 4, 5, 1)
-# initial_schedule = partial_swap_round(initial_schedule, 6, 7, 1)
+
 
 initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
@@ -64,9 +62,7 @@ print()
 
 
 max_iterations = 2000
-# neighbourhoods = [swap_round, swap_home, swap_team, partial_swap_round, partial_swap_team]
-
-# tabu
+improvements = 0
 
 ## aspiration
 k = 0
@@ -124,9 +120,10 @@ for i in range(max_iterations):
         # print("stay here")
         # print("k is ", k)
         print("improved", i, S_distance)
+        improvements += 1
 
     else:
-        k = (k+1)%5 ## change to 5 for partial swap team
+        k = (k+1)%3 ## change to 5 for partial swap team
         # if k == 1:
         #     k = 3
         # elif k == 3:
@@ -142,7 +139,7 @@ end_time = time.time()
 
 
 output_schedule(S_star)
-output_schedule_with_distances(S_star, distance_matrix)
+# output_schedule_with_distances(S_star, distance_matrix)
 # output_sign_schedule(S_star)
 # print("output distance is ", best_distance)
 
@@ -161,7 +158,7 @@ assert calculate_total_distance(S_star, distance_matrix) == best_distance, "they
 # Calculate and print the elapsed time
 elapsed_time = end_time - start_time
 # print(f"Execution time: {elapsed_time} seconds")
-print()
+print("improvement count is ", improvements)
 print("result: {}, iterations: {}, time:{}".format(best_distance, max_iterations, elapsed_time))
 
 

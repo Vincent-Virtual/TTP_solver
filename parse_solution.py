@@ -106,18 +106,7 @@ Team  4's Schedule: [ -6   5  -3  -2   1   3   2  -1  -5   6]
 Team  5's Schedule: [ -1  -4   2   6  -3  -2  -6   3   4   1]
 Team  6's Schedule: [  4   3  -1  -5   2   1   5  -2  -3  -4]'''
 
-schedule = parse_schedule_to_array(schedule_str)
-output_schedule(schedule)
-print()
-schedule = partial_swap_team(schedule, 1, 3, 0)
-output_schedule(schedule)
-print()
-schedule = swap_home(schedule, 2, 3)
-output_schedule(schedule)
-print()
-schedule = partial_swap_team(schedule, 2, 3, 1)
-output_schedule(schedule)
-print()
+
 # schedule = partial_swap_team(schedule, 1, 2, 4)
 # output_schedule(schedule)
 # print()

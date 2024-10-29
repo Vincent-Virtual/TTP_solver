@@ -3,6 +3,14 @@ Team  2's Schedule: [  3   1  -4  -1  -3   4]
 Team  3's Schedule: [ -2  -4   1   4   2  -1]
 Team  4's Schedule: [  1   3   2  -3  -1  -2]
 
+Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
+Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3]
+Team  3's Schedule: [ -4   5   4   1  -6   2  -1  -5   6  -2]
+Team  4's Schedule: [  3  -6  -3  -2   1   5   2  -1  -5   6]
+Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
+Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]
+optimal is 23916
+
                        1   2   3   4   5   6   7   8   9   10 
 Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5] 4414    4301    4147      4558
 Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3] 3328*   3623    3328      3660
@@ -36,14 +44,15 @@ Team  5's Schedule: [  1   6   2  -4  -2  -3   4   3  -6  -1]  Total travel dist
 Team  6's Schedule: [  4  -5  -1   3   1  -2  -3   2   5  -4]  Total travel distance: 3604m
 output distance is  24073
 
+Team  1's Schedule: [ -5(605)  -3(1020)   6(665)   2(0)  -6(521)  -4(408)  -2(337)   4(745)   3(0)   5(0)]  Total travel distance: 4301m
+Team  2's Schedule: [  3(0)   4(0)  -5(1090)  -1(605)   5(745)   6(0)   1(0)  -6(315)  -4(408)  -3(380)  Home(80)]  Total travel distance: 3623m
+Team  3's Schedule: [ -2(80)   1(80)   4(0)  -6(257)  -4(408)   5(380)   6(0)  -5(1020)  -1(605)   2(665)]  Total travel distance: 3495m
+Team  4's Schedule: [ -6(408)  -2(315)  -3(80)   5(380)   3(0)   1(0)  -5(1380)  -1(605)   2(929)   6(0)]  Total travel distance: 4097m
+Team  5's Schedule: [  1(0)   6(0)   2(0)  -4(1380)  -2(337)  -3(80)   4(1020)   3(0)  -6(1010)  -1(521)  Home(605)]  Total travel distance: 4953m
+Team  6's Schedule: [  4(0)  -5(1010)  -1(605)   3(521)   1(0)  -2(315)  -3(80)   2(257)   5(0)  -4(408)  Home(408)]  Total travel distance: 3604m
+output distance is  24073
 
-Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
-Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3]
-Team  3's Schedule: [ -4   5   4   1  -6   2  -1  -5   6  -2]
-Team  4's Schedule: [  3  -6  -3  -2   1   5   2  -1  -5   6]
-Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
-Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]
-optimal is 23916
+
 
 Team  1's Schedule: [  5   2  -6  -5   6  -4  -3  -2   3   4]
 Team  2's Schedule: [ -6  -1  -5   4   3   5  -4   1   6  -3]
@@ -67,6 +76,39 @@ Team  5's Schedule: [ -1  -6   3   4  -3  -2  -4   2   6   1]
 Team  6's Schedule: [ -4   5   2  -3  -2   1   3  -1  -5   4]
 output distance is  24073
 
+(3, 1, 2, 1)
+New best cost: 36
+violation of new schedule is  0
+distance is  24075
+(2, 3, 5)
+New best cost: 20
+violation of new schedule is  0
+distance is  24891
+(0, 0, 5)
+New best cost: 18
+violation of new schedule is  0
+distance is  26025
+(1, 2, 3)
+New best cost: 16
+violation of new schedule is  0
+distance is  26785
+(3, 0, 2, 0)
+New best cost: 12
+violation of new schedule is  2
+distance is  27070
+(0, 1, 5)
+New best cost: 0
+violation of new schedule is  0
+distance is  23916
+
+Team  1's Schedule: [  5   2   6  -3  -4  -6   3   4  -2  -5]
+Team  2's Schedule: [ -6  -1  -5   4   5  -3  -4   6   1   3]
+Team  3's Schedule: [ -4   5   4   1  -6   2  -1  -5   6  -2]
+Team  4's Schedule: [  3  -6  -3  -2   1   5   2  -1  -5   6]
+Team  5's Schedule: [ -1  -3   2   6  -2  -4  -6   3   4   1]
+Team  6's Schedule: [  2   4  -1  -5   3   1   5  -2  -3  -4]
+optimal is 23916
+
 Team  1's Schedule: [  5   3   4  -2  -4  -6   2   6  -3  -5]
 Team  2's Schedule: [ -3  -4  -6   1   6   5  -1  -5   4   3]
 Team  3's Schedule: [  2  -1  -5   6   5  -4  -6   4   1  -2]
@@ -81,13 +123,7 @@ Team  4's Schedule: [  3(0)  -6(408)  -3(257)  -2(80)   1(337)   5(0)   2(0)  -1
 Team  5's Schedule: [ -1(605)  -3(665)   2(1020)   6(0)  -2(1090)  -4(337)  -6(408)   3(1010)   4(0)   1(0)]  Total travel distance: 5135m
 Team  6's Schedule: [  2(0)   4(0)  -1(521)  -5(605)   3(1010)   1(0)   5(0)  -2(315)  -3(80)  -4(380)  Home(408)]  Total travel distance: 3319m
 
-Team  1's Schedule: [ -5(605)  -3(1020)   6(665)   2(0)  -6(521)  -4(408)  -2(337)   4(745)   3(0)   5(0)]  Total travel distance: 4301m
-Team  2's Schedule: [  3(0)   4(0)  -5(1090)  -1(605)   5(745)   6(0)   1(0)  -6(315)  -4(408)  -3(380)  Home(80)]  Total travel distance: 3623m
-Team  3's Schedule: [ -2(80)   1(80)   4(0)  -6(257)  -4(408)   5(380)   6(0)  -5(1020)  -1(605)   2(665)]  Total travel distance: 3495m
-Team  4's Schedule: [ -6(408)  -2(315)  -3(80)   5(380)   3(0)   1(0)  -5(1380)  -1(605)   2(929)   6(0)]  Total travel distance: 4097m
-Team  5's Schedule: [  1(0)   6(0)   2(0)  -4(1380)  -2(337)  -3(80)   4(1020)   3(0)  -6(1010)  -1(521)  Home(605)]  Total travel distance: 4953m
-Team  6's Schedule: [  4(0)  -5(1010)  -1(605)   3(521)   1(0)  -2(315)  -3(80)   2(257)   5(0)  -4(408)  Home(408)]  Total travel distance: 3604m
-output distance is  24073
+
 
 [0,   745,  665,  929,  605,  521]
 [745, 0,    80,   337,  1090, 315]
@@ -239,3 +275,21 @@ Team  5's Schedule: [ - - + + - - - + + + ]
 Team  6's Schedule: [ + - - - + + + - + - ]
 output distance is  24122
 result: 24122, iterations: 2000, time:4.600786209106445
+
+
+frequent alternation ini sche
+(2, 4, 5)
+(3, 0, 1, 1)
+(0, 3, 4)
+(1, 1, 5)
+(3, 3, 4, 2)
+(1, 0, 1)
+(3, 1, 4, 1)
+(1, 0, 1)
+(4, 4, 8, 0)
+(1, 4, 5)
+(0, 4, 6)
+(0, 4, 9)
+(0, 6, 9)
+(3, 1, 5, 4)
+New best cost: 0
