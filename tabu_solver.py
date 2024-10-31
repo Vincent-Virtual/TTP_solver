@@ -29,19 +29,21 @@ distance_matrix = read_xml_and_create_distance_matrix(file_path)
 num_teams = len(distance_matrix)
 
 schedule_str = '''
-Team  1's Schedule: [  9   4  -9  -8 -10   3   6  -7  -4  -2   7   8   2  -6  -3   5  10  -5]
-Team  2's Schedule: [-10   6  10  -3   5   9   8  -4  -6   1   4   3  -1  -8  -9   7  -5  -7]
-Team  3's Schedule: [ -5   8   5   2  -7  -1   9  -6  -8 -10   6  -2  10  -9   1   4   7  -4]
-Team  4's Schedule: [  6  -1  -6   5  -8  -7 -10   2   1   9  -2  -5  -9  10   7  -3   8   3]
-Team  5's Schedule: [  3   9  -3  -4  -2   6   7  10  -9  -8 -10   4   8  -7  -6  -1   2   1]
-Team  6's Schedule: [ -4  -2   4  10   9  -5  -1   3   2   7  -3 -10  -7   1   5  -8  -9   8]
-Team  7's Schedule: [  8 -10  -8  -9   3   4  -5   1  10  -6  -1   9   6   5  -4  -2  -3   2]
-Team  8's Schedule: [ -7  -3   7   1   4 -10  -2  -9   3   5   9  -1  -5   2  10   6  -4  -6]
-Team  9's Schedule: [ -1  -5   1   7  -6  -2  -3   8   5  -4  -8  -7   4   3   2 -10   6  10]
-Team 10's Schedule: [  2   7  -2  -6   1   8   4  -5  -7   3   5   6  -3  -4  -8   9  -1  -9]'''
+Team  1's Schedule: [ -2  -6   4  10   6 -12 -10  -8  11   7  -5 -11   9  12  -9  -4  -3   8   3  -7   5   2]
+Team  2's Schedule: [  1  11  -7  -9 -11   3   5  12  -3  -4   7   4   8 -10  -8  -5  10   6   9  -6 -12  -1]
+Team  3's Schedule: [ -7  -8 -10   7   8  -2  12   5   2  -5  -9  -6   4  11  -4  10   1   9  -1 -12 -11   6]
+Team  4's Schedule: [ 11  12  -1 -11 -12   5   6   7  -6   2  10  -2  -3   8   3   1  -5  -7 -10   9  -8  -9]
+Team  5's Schedule: [-12 -10  -9   6  10  -4  -2  -3   8   3   1  -7  11   9 -11   2   4  12  -6  -8  -1   7]
+Team  6's Schedule: [  9   1  12  -5  -1   8  -4  11   4  -9 -11   3 -10  -7  10  -8 -12  -2   5   2   7  -3]
+Team  7's Schedule: [  3   9   2  -3  -9 -10  11  -4  10  -1  -2   5  12   6 -12 -11  -8   4   8   1  -6  -5]
+Team  8's Schedule: [-10   3  11  12  -3  -6  -9   1  -5 -11 -12   9  -2  -4   2   6   7  -1  -7   5   4  10]
+Team  9's Schedule: [ -6  -7   5   2   7 -11   8 -10  12   6   3  -8  -1  -5   1 -12  11  -3  -2  -4  10   4]
+Team 10's Schedule: [  8   5   3  -1  -5   7   1   9  -7 -12  -4  12   6   2  -6  -3  -2  11   4 -11  -9  -8]
+Team 11's Schedule: [ -4  -2  -8   4   2   9  -7  -6  -1   8   6   1  -5  -3   5   7  -9 -10  12  10   3 -12]
+Team 12's Schedule: [  5  -4  -6  -8   4   1  -3  -2  -9  10   8 -10  -7  -1   7   9   6  -5 -11   3   2  11]'''
 
-initial_schedule = parse_schedule_to_array(schedule_str)
-# initial_schedule = generate_team_centric_schedule(num_teams)
+# initial_schedule = parse_schedule_to_array(schedule_str)
+initial_schedule = generate_team_centric_schedule(num_teams)
 initial_distance = calculate_total_distance(initial_schedule, distance_matrix)
 
 print("initial schedule is")
@@ -152,7 +154,7 @@ def find_best_move(k, current_schedule, heuristic_func):
                     if count_violations(new_schedule) > 0:
                         continue  # Skip if the new schedule has violations
                     new_cost = heuristic_func(new_schedule)
-                    if (k, idx1, idx2, pivot_round_idx) not in tabu_list:# or new_cost < best_cost: ## Aspiration criterion
+                    if (k, idx1, idx2, pivot_round_idx) not in tabu_list or new_cost < best_cost: ## Aspiration criterion
                         if new_cost < current_best_cost:
                             current_best_schedule = new_schedule
                             current_best_cost = new_cost
@@ -168,7 +170,7 @@ def find_best_move(k, current_schedule, heuristic_func):
                     if count_violations(new_schedule) > 0:
                         continue  # Skip if the new schedule has violations
                     new_cost = heuristic_func(new_schedule)
-                    if (k, round_idx1, round_idx2, pivot_team_idx) not in tabu_list:# or new_cost < best_cost: # Aspiration criterion
+                    if (k, round_idx1, round_idx2, pivot_team_idx) not in tabu_list or new_cost < best_cost: # Aspiration criterion
                         if new_cost < current_best_cost:
                             current_best_schedule = new_schedule
                             current_best_cost = new_cost
@@ -179,7 +181,7 @@ def find_best_move(k, current_schedule, heuristic_func):
 
 start_time = time.time()
 
-max_idle_iterations = 50
+max_idle_iterations = 200
 improvements = 0
 idle_iterations = 0
 
@@ -190,7 +192,7 @@ while idle_iterations < max_idle_iterations:
     # Iterate over all moves in the tabu_list
     for move in list(tabu_list.keys()):
         # Check if the tabu tenure of the move has expired
-        if tabu_list[move] <= iteration:
+        if tabu_list[move] == iteration:
             # print("expired!")
             # If expired, mark it for removal
             moves_to_remove.append(move)
